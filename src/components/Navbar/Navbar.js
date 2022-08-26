@@ -5,15 +5,15 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav class="navbar">
-      <div class="navbar-container container">
+    <nav className="navbar">
+      <div className="navbar-container container">
         <input type="checkbox" name="" id="" />
-        <div class="hamburger-lines">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
+        <div className="hamburger-lines">
+          <span className="line line1"></span>
+          <span className="line line2"></span>
+          <span className="line line3"></span>
         </div>
-        <ul class="menu-items">
+        <ul className="menu-items">
           <li>
             <Link to="/">Home</Link>
           </li>

@@ -1,0 +1,12 @@
+.span1 {
+  --value: 32;
+}
+.span2 {
+  --value: 10;
+}
+.span3 {
+  --value: 24;
+}
+.span4 {
+  --value: 42;
+}
