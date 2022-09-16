@@ -43,7 +43,7 @@ const SignUp = () => {
     await updateProfile({ displayName: data.name });
   };
   return (
-    <div className="flex justify-center items-center h-screen pt-10">
+    <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-gray-200 shadow-xl">
         <div className="card-body">
           <h2 className="text-center text-2xl font-bold">Sign Up</h2>

@@ -1,22 +1,39 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Book = (book) => {
-  const { name, image, category, writter, price } = book.book;
+  const { _id, name, image, category, writter, price } = book.book;
+  const navigate = useNavigate();
+  const handleBookNow = (bookId) => {
+    navigate(`/buyNow/${bookId}`);
+  };
   return (
-    <div className="card w-96 bg-green-100 shadow-xl">
+    <div className="card bg-green-100 shadow-xl">
       <figure className="px-10 pt-10">
         <img src={image} className="rounded-xl" alt="" />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">{name}</h2>
         <p>
-          <span className="font-bold">By</span> <span className="text-green-700 font-thin">{writter}</span>
+          <span className="font-bold">By</span>{" "}
+          <span className="text-green-700 font-thin">{writter}</span>
         </p>
-        <p><span className="font-bold">Category: </span>{category}</p>
-        <p><span className="font-bold">Price: </span><span className="font-semibold">{price}</span></p>
+        <p>
+          <span className="font-bold">Category: </span>
+          {category}
+        </p>
+        <p>
+          <span className="font-bold">Price: </span>
+          <span className="font-semibold">{price}</span>
+        </p>
 
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button
+            onClick={() => handleBookNow(_id)}
+            className="btn btn-primary btn-sm mt-3 text-white"
+          >
+            Buy Now{" "}
+          </button>
         </div>
       </div>
     </div>
