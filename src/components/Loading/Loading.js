@@ -5,7 +5,7 @@ const Loading = () => {
     <div className="h-screen flex justify-center items-center">
       <div
         style={{ borderTopColor: "transparent" }}
-        className="w-16 h-16 border-4 border-primary border-dotted rounded-full animate-spin"
+        className="w-16 h-16 border-4 border-green-500 border-dotted rounded-full animate-spin"
       ></div>
     </div>
   );
