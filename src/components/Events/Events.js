@@ -22,7 +22,7 @@ const Events = () => {
       <h1 className="text-3xl text-center font-bold my-8 text-green-500">
         Upcoming Events
       </h1>
-      <div class="hero min-h-screen bg-base-200">
+      <div class="hero min-h-screen bg-green-100">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://placeimg.com/260/400/arch"
