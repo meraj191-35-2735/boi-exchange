@@ -7,7 +7,9 @@ import feature3 from "../../assets/images/features/feature3.jpg";
 const Features = () => {
   return (
     <div>
-      <h1 className="text-3xl text-center font-bold my-8 text-green-500">Services</h1>
+      <h1 className="text-3xl text-center font-bold my-8 text-green-500">
+        Services
+      </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5">
         {/* feature 01 */}
         <div className="card bg-pink-200 shadow-xl">
