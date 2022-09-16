@@ -8,7 +8,17 @@ const Book = (book) => {
     navigate(`/buyNow/${bookId}`);
   };
   return (
-    <div className="card bg-green-100 shadow-xl">
+    <div
+      data-aos="fade-up"
+      data-aos-offset="200"
+      data-aos-delay="50"
+      data-aos-duration="2000"
+      data-aos-easing="ease-in-out"
+      data-aos-mirror="true"
+      data-aos-once="true"
+      data-aos-anchor-placement="bottom-bottom"
+      className="card bg-green-100 shadow-xl"
+    >
       <figure className="px-10 pt-10">
         <img src={image} className="rounded-xl" alt="" />
       </figure>

@@ -40,9 +40,24 @@ const Navbar = () => {
           </li>
           <li>
             {user ? (
-              <button className="btn btn-ghost" onClick={logout}>
-                Sign Out
-              </button>
+              <div className="dropdown lg:dropdown-left">
+                <label tabIndex={0} className="font-bold m-1">
+                  More
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to="/myProfile">My Profile</Link>
+                  </li>
+                  <li>
+                    <button className="btn btn-ghost" onClick={logout}>
+                      Sign Out
+                    </button>
+                  </li>
+                </ul>
+              </div>
             ) : (
               <Link to="/login">Login</Link>
             )}
@@ -50,7 +65,6 @@ const Navbar = () => {
         </ul>
         <div className="logo">
           <img src={logo} alt="" />
-          {/* <h1 className="logo">Book Exchange</h1> */}
         </div>
       </div>
     </nav>
