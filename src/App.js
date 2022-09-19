@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import BuyNow from "./components/BuyNow/BuyNow";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
+import AddBookExchange from "./components/MyProfile/AddBookExchange";
 import MyProfile from "./components/MyProfile/MyProfile";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
@@ -19,6 +20,10 @@ function App() {
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/store" element={<Store></Store>}></Route>
         <Route path="/myProfile" element={<MyProfile></MyProfile>}></Route>
+        <Route
+          path="/myProfile/addToExchange"
+          element={<AddBookExchange></AddBookExchange>}
+        ></Route>
         <Route
           path="buyNow/:bookId"
           element={
