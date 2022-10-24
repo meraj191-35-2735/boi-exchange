@@ -5,14 +5,16 @@ import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
-
+  console.log(admin);
   return (
     <nav className="navbar">
       <div className="navbar-container container">
@@ -48,9 +50,15 @@ const Navbar = () => {
                   tabIndex={0}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  <li>
-                    <Link to="/myProfile">My Profile</Link>
-                  </li>
+                  {admin===false ? (
+                    <li>
+                      <Link to="/myProfile">Normal User</Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link to="/dashboard">Dashboard</Link>
+                    </li>
+                  )}
                   <li>
                     <button className="btn btn-ghost" onClick={logout}>
                       Sign Out
