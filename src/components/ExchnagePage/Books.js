@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 const Books = ({ book }) => {
   const { name, category, writter, image, userDetails } = book;
   return (
-    <div className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-gray-200 border rounded-lg">
+    <div
+      data-aos="flip-left"
+      data-aos-easing="ease-out-cubic"
+      data-aos-duration="2000"
+      className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-gray-200 border rounded-lg"
+    >
       <div>
         {/* image */}
         <img
@@ -14,7 +19,11 @@ const Books = ({ book }) => {
         />
       </div>
 
-      <div className="flex flex-col justify-center items-center bg-gray-300 rounded my-5">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="flex flex-col justify-center items-center bg-gray-300 rounded my-5"
+      >
         {/* book name */}
         <h3 className="lg:text-xl text-lg font-bold ">{name}</h3>
         <p>
@@ -25,7 +34,11 @@ const Books = ({ book }) => {
         </p>
       </div>
 
-      <div className="flex flex-col justify-center items-center bg-gray-300 rounded my-5">
+      <div
+        data-aos="fade-down"
+        data-aos-duration="3000"
+        className="flex flex-col justify-center items-center bg-gray-300 rounded my-5"
+      >
         {/* user details */}
         <p> User Name: {userDetails?.username}</p>
         <p>Email: {userDetails.email}</p>
