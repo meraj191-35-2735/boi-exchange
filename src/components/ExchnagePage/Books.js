@@ -1,7 +1,10 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Books = ({ book }) => {
+  const [user] = useAuthState(auth);
   const { name, category, writter, image, userDetails } = book;
   return (
     <div
@@ -51,9 +54,21 @@ const Books = ({ book }) => {
       </div>
       <div className="flex justify-center items-center">
         {/* Request button */}
-        <Link to="/requestMessage" className="btn btn-sm ">
-          Send Request
-        </Link>
+        {user ? (
+          <Link to="/requestMessage" className="btn btn-sm ">
+            Send Request
+          </Link>
+        ) : (
+          <div className="flex flex-col justify-center items-center">
+            <Link to="/requestMessage" className="btn btn-sm btn-disabled">
+              Send Request
+            </Link>
+            
+            <p className="text-xs text-warning">
+              (For Send Request You have to Login to System)
+            </p>
+          </div>
+        )}
       </div>
     </div>
   );
