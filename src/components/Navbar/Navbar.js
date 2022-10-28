@@ -14,7 +14,7 @@ const Navbar = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
-  console.log(admin);
+
   return (
     <nav className="navbar">
       <div className="navbar-container container">
@@ -50,9 +50,9 @@ const Navbar = () => {
                   tabIndex={0}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  {admin===false ? (
+                  {admin === false ? (
                     <li>
-                      <Link to="/myProfile">Normal User</Link>
+                      <Link to="/myProfile">My Profile</Link>
                     </li>
                   ) : (
                     <li>

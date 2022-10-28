@@ -1,0 +1,29 @@
+import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
+import Footer from "../Footer/Footer";
+import Books from "./Books";
+
+const ExchangePage = () => {
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    fetch("exchange.json")
+      .then((res) => res.json())
+      .then((data) => setBooks(data));
+  }, []);
+  return (
+    <div>
+      <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5">
+        Books For Exchange
+      </h1>
+      <div className=" w-full mx-auto">
+        {books.map((book) => (
+          <Books key={books.indexOf(book)} book={book}></Books>
+        ))}
+      </div>
+      <Footer></Footer>
+    </div>
+  );
+};
+
+export default ExchangePage;
