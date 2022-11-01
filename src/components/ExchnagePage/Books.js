@@ -5,7 +5,7 @@ import auth from "../../firebase.init";
 
 const Books = ({ book }) => {
   const [user] = useAuthState(auth);
-  const { name, category, writter, image, userDetails } = book;
+  const { name, category, writter, image, userDetails, _id } = book;
   return (
     <div
       data-aos="flip-left"
@@ -55,7 +55,7 @@ const Books = ({ book }) => {
       <div className="flex justify-center items-center">
         {/* Request button */}
         {user ? (
-          <Link to="/requestMessage" className="btn btn-sm ">
+          <Link to={`/exchange/${_id}`} className="btn btn-sm ">
             Send Request
           </Link>
         ) : (
@@ -63,7 +63,7 @@ const Books = ({ book }) => {
             <Link to="/requestMessage" className="btn btn-sm btn-disabled">
               Send Request
             </Link>
-            
+
             <p className="text-xs text-warning">
               (For Send Request You have to Login to System)
             </p>

@@ -10,6 +10,7 @@ import useAdmin from "../../hooks/useAdmin";
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+  console.log(user);
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
@@ -43,9 +44,18 @@ const Navbar = () => {
           <li>
             {user ? (
               <div className="dropdown lg:dropdown-left">
-                <label tabIndex={0} className="font-bold m-1">
-                  More
-                </label>
+                {user?.photoURL ? (
+                  <label tabIndex={0} className="avatar">
+                    <div className="w-10 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                      <img src={user?.photoURL} alt="profile" />
+                    </div>
+                  </label>
+                ) : (
+                  <label tabIndex={0} className="font-bold m-1">
+                    More
+                  </label>
+                )}
+
                 <ul
                   tabIndex={0}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"

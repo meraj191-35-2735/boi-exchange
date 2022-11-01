@@ -8,7 +8,7 @@ import Books from "./Books";
 const ExchangePage = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("exchange.json")
+    fetch("http://localhost:5000/exchange")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
