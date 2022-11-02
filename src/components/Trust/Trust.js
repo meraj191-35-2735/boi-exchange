@@ -12,14 +12,14 @@ import VisibilitySensor from "react-visibility-sensor";
 const Trust = () => {
   return (
     <div className="my-16">
-      <h1 className="text-3xl text-center font-bold my-8 text-green-500">
-        Why You Can Trust!
+      <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5 mb-3">
+        Why You Can Trust
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-        <div className="card bg-green-100 shadow-xl">
+        <div className="card bg-orange-100 shadow-xl">
           <figure className="px-10 pt-10">
-            <p className="text-4xl text-pink-500">
+            <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faGlobe} />
             </p>
           </figure>
@@ -27,7 +27,7 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p>Countries: </p>
+                  <p className="font-bold">Countries: </p>
                   {isVisible ? (
                     <h2 className="text-center text-4xl font-bold ">
                       <CountUp
@@ -46,7 +46,7 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card bg-pink-100 shadow-xl">
+        <div className="card bg-orange-100 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faLightbulb} />
@@ -56,7 +56,7 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p>Books: </p>
+                  <p className="font-bold">Books: </p>
                   {isVisible ? (
                     <h2 className="text-center text-4xl font-bold ">
                       <CountUp
@@ -75,9 +75,9 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card  bg-green-100 shadow-xl">
+        <div className="card  bg-orange-100 shadow-xl">
           <figure className="px-10 pt-10">
-            <p className="text-4xl text-pink-500">
+            <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faPeopleGroup} />
             </p>
           </figure>
@@ -85,7 +85,7 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p>Customers: </p>
+                  <p className="font-bold">Customers: </p>
                   {isVisible ? (
                     <h2 className="text-center text-4xl font-bold ">
                       <CountUp
@@ -104,7 +104,7 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card bg-pink-100 shadow-xl">
+        <div className="card bg-orange-100 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faThumbsUp} />
@@ -114,7 +114,7 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p>Reviews: </p>
+                  <p className="font-bold">Reviews: </p>
                   {isVisible ? (
                     <h2 className="text-center text-4xl font-bold ">
                       <CountUp

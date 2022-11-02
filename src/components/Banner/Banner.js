@@ -19,7 +19,6 @@ const Banner = () => {
             age groups discover the joy of reading. It is a very intuitive
             platform for all ages to use easily and discover the joy of books.
           </p>
-          <button className="btn btn-primary">Get Started</button>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import Users from "./components/AdminDashboard/Users";
+import BorrowMessage from "./components/BorrowPage/BorrowMessage";
+import BorrowPage from "./components/BorrowPage/BorrowPage";
 import BuyNow from "./components/BuyNow/BuyNow";
 import ExchangeMessage from "./components/ExchnagePage/ExchangeMessage";
 import ExchangePage from "./components/ExchnagePage/ExchangePage";
@@ -17,7 +19,7 @@ import Store from "./components/Store/Store";
 
 function App() {
   return (
-    <div className="px-4">
+    <div className="px-4 ">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -26,9 +28,14 @@ function App() {
         <Route path="/store" element={<Store></Store>}></Route>
         <Route path="/myProfile" element={<MyProfile></MyProfile>}></Route>
         <Route path="/exchange" element={<ExchangePage></ExchangePage>}></Route>
+        <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
         <Route
           path="/exchange/:bookId"
           element={<ExchangeMessage></ExchangeMessage>}
+        ></Route>
+        <Route
+          path="/borrow/:bookId"
+          element={<BorrowMessage></BorrowMessage>}
         ></Route>
         <Route
           path="/myProfile/addToExchange"
