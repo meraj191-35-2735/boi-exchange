@@ -11,7 +11,7 @@ const Books = ({ book }) => {
       data-aos="flip-up"
       data-aos-easing="ease-out-cubic"
       data-aos-duration="2000"
-      className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-gray-200 border rounded-lg"
+      className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-orange-100 border rounded-lg"
     >
       <div>
         {/* image */}
@@ -25,39 +25,56 @@ const Books = ({ book }) => {
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className="flex flex-col justify-center items-center bg-gray-300 rounded my-5"
+        className="flex flex-col justify-center items-center bg-orange-200 rounded my-5"
       >
         {/* book name */}
         <h3 className="lg:text-xl text-lg font-bold ">{name}</h3>
         <p>
-          Category: <br /> {category}
+          <span className="font-bold">Category:</span> <br /> {category}
         </p>
         <p>
-          Written by: <br /> {writter}
+          <span className="font-bold">Writer:</span> <br /> {writter}
         </p>
       </div>
 
       <div
         data-aos="fade-down"
         data-aos-duration="3000"
-        className="flex flex-col justify-center items-center bg-gray-300 rounded my-5"
+        className="flex flex-col justify-center items-center bg-orange-200 rounded my-5"
       >
         {/* user details */}
-        <p> User Name: {userDetails?.username}</p>
-        <p>Email: {userDetails.email}</p>
-        <p>Meet Location: {userDetails.location}</p>
-        <p>Contact: {userDetails.contact}</p>
-        <p>Available for: {userDetails.duration} days</p>
+        <p>
+          <span className="font-bold">Name:</span> {userDetails?.username}
+        </p>
+        <p>
+          <span className="font-bold">Email:</span> {userDetails.email}
+        </p>
+        <p>
+          <span className="font-bold">Meet Point:</span> {userDetails.location}
+        </p>
+        <p>
+          <span className="font-bold">Phone:</span> {userDetails.contact}
+        </p>
+        <p>
+          <span className="font-bold">Available for:</span>{" "}
+          {userDetails.duration} days
+        </p>
       </div>
       <div className="flex justify-center items-center">
         {/* Request button */}
         {user ? (
-          <Link to={`/borrow/${_id}`} className="btn btn-sm ">
+          <Link
+            to={`/borrow/${_id}`}
+            className="btn btn-sm btn-outline hover:rounded-full"
+          >
             Send Request
           </Link>
         ) : (
           <div className="flex flex-col justify-center items-center">
-            <Link to="/requestMessage" className="btn btn-sm btn-disabled">
+            <Link
+              to="/requestMessage"
+              className="btn btn-sm btn-outline hover:rounded-full btn-disabled"
+            >
               Send Request
             </Link>
 

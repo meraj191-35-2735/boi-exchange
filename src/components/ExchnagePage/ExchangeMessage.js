@@ -14,7 +14,7 @@ const ExchangeMessage = () => {
   return (
     <div>
       <div className="mt-10 grid lg:grid-cols-2 grid-cols-1 gap-5 mb-5">
-        <div className="border rounded shadow-xl p-10 bg-gray-100">
+        <div className="border rounded shadow-xl p-10 bg-orange-100">
           <h1 className="text-center font-semibold">Verify your Account</h1>
           <h3 className="text-center">
             You can verify your account to use this exchange system securely.
@@ -23,7 +23,7 @@ const ExchangeMessage = () => {
             <img className="w-52 h-56" src={verifyLogo} alt="" />
           </div>
         </div>
-        <div className="border rounded-lg shadow-xl py-10 bg-gray-100">
+        <div className="border rounded-lg shadow-xl py-10 bg-orange-100">
           <h1 className="text-warning font-semibold text-xl text-center">
             Your Request will Send after Submit the Form!
           </h1>
@@ -86,7 +86,7 @@ const ExchangeMessage = () => {
             <div className="flex justify-center">
               <input
                 type="submit"
-                className="btn btn-sm btn-outline font-semibold"
+                className="btn btn-sm btn-outline hover:rounded-full font-semibold"
                 value="Submit"
               />
             </div>

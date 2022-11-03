@@ -13,7 +13,7 @@ const Book = (book) => {
       data-aos-offset="200"
       data-aos-delay="50"
       data-aos-duration="2000"
-      className="bg-gray-200 rounded-lg shadow-lg"
+      className="bg-orange-100 rounded-lg shadow-lg"
     >
       <figure className="px-10 pt-10">
         <img src={image} className="rounded-xl" alt="" />
@@ -36,7 +36,7 @@ const Book = (book) => {
         <div className="card-actions">
           <button
             onClick={() => handleBookNow(_id)}
-            className="btn btn-primary btn-sm mt-3 text-white"
+            className="btn btn-sm btn-outline hover:rounded-full mt-3 "
           >
             Buy Now{" "}
           </button>
