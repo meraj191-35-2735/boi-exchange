@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
 import { Link } from "react-router-dom";
@@ -15,7 +15,9 @@ const Navbar = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
-
+  useEffect(() => {
+    fetch('http://localhost:5000/exchange/')
+  }, []);
   return (
     <nav className="navbar">
       <div className="navbar-container container">
@@ -39,7 +41,9 @@ const Navbar = () => {
             <Link to="/borrow">Borrow</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/request">
+              Request <div className="badge badge-secondary"></div>
+            </Link>
           </li>
           <li>
             {user ? (

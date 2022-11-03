@@ -5,7 +5,18 @@ import auth from "../../firebase.init";
 
 const Books = ({ book }) => {
   const [user] = useAuthState(auth);
-  const { name, category, writter, image, userDetails, _id } = book;
+  const {
+    name,
+    category,
+    writter,
+    image,
+    userName,
+    userEmail,
+    userLocation,
+    userContact,
+    duration,
+    _id,
+  } = book;
   return (
     <div
       data-aos="flip-up"
@@ -44,20 +55,19 @@ const Books = ({ book }) => {
       >
         {/* user details */}
         <p>
-          <span className="font-bold">Name:</span> {userDetails?.username}
+          <span className="font-bold">Name:</span> {userName}
         </p>
         <p>
-          <span className="font-bold">Email:</span> {userDetails.email}
+          <span className="font-bold">Email:</span> {userEmail}
         </p>
         <p>
-          <span className="font-bold">Meet Point:</span> {userDetails.location}
+          <span className="font-bold">Meet Point:</span> {userLocation}
         </p>
         <p>
-          <span className="font-bold">Phone:</span> {userDetails.contact}
+          <span className="font-bold">Phone:</span> {userContact}
         </p>
         <p>
-          <span className="font-bold">Available for:</span>{" "}
-          {userDetails.duration} days
+          <span className="font-bold">Available for:</span> {duration} days
         </p>
       </div>
       <div className="flex justify-center items-center">

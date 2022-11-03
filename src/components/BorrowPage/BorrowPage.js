@@ -7,7 +7,7 @@ import Books from "./Books";
 const BorrowPage = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("borrow.json")
+    fetch("http://localhost:5000/borrow")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
