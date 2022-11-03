@@ -12,7 +12,7 @@ const Features = () => {
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 px-5">
         {/* feature 01 */}
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-blue-100 shadow-xl">
           <figure className="px-10 pt-10">
             <img src={feature1} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -30,7 +30,7 @@ const Features = () => {
           </div>
         </div>
         {/* feature 02 */}
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-blue-100 shadow-xl">
           <figure className="px-10 pt-10">
             <img src={feature2} alt="Shoes" className="rounded-xl" />
           </figure>
@@ -48,7 +48,7 @@ const Features = () => {
           </div>
         </div>
         {/* feature 03 */}
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-blue-100 shadow-xl">
           <figure className="px-10 pt-10">
             <img src={feature3} alt="Shoes" className="rounded-xl" />
           </figure>

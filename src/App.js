@@ -19,7 +19,7 @@ import Store from "./components/Store/Store";
 
 function App() {
   return (
-    <div className="px-4 ">
+    <div className="px-4">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

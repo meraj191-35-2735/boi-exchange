@@ -1,12 +1,12 @@
 import React from "react";
-import bannerGif from "../../assets/images/banner/bannerGif.gif";
+import bannerPic from "../../assets/images/banner/banner.jpg";
 
 const Banner = () => {
   return (
     <div
       className="hero min-h-screen"
       style={{
-        backgroundImage: `url(${bannerGif})`,
+        backgroundImage: `url(${bannerPic})`,
       }}
     >
       <div className="hero-overlay bg-opacity-70"></div>

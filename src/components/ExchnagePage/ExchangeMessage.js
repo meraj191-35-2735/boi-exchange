@@ -1,15 +1,39 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
 import verifyLogo from "../../assets/images/logo/verify-logo.png";
+import auth from "../../firebase.init";
 import Footer from "../Footer/Footer";
 
 const ExchangeMessage = () => {
+  const [user] = useAuthState(auth);
+  const { bookId } = useParams();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const requesterName = event.target.name.value;
     const requesterPhone = event.target.phone.value;
     const requesterAddress = event.target.address.value;
     const requesterBook = event.target.bookName.value;
-    console.log(requesterName, requesterPhone, requesterAddress, requesterBook);
+    const email = user.email;
+
+    const requesterDetails = {
+      name: requesterName,
+      phone: requesterPhone,
+      address: requesterAddress,
+      book: requesterBook,
+      email: email,
+    };
+
+    fetch(`http://localhost:5000/exchange/${bookId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requesterDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div>
