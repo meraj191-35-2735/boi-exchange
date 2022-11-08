@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
+import userProfile from "../../assets/images/logo/userProfile.png";
 import { Link } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
@@ -16,7 +17,7 @@ const Navbar = () => {
     localStorage.removeItem("accessToken");
   };
   useEffect(() => {
-    fetch('http://localhost:5000/exchange/')
+    fetch("https://floating-gorge-66618.herokuapp.com/exchange/");
   }, []);
   return (
     <nav className="navbar">
@@ -55,8 +56,11 @@ const Navbar = () => {
                     </div>
                   </label>
                 ) : (
-                  <label tabIndex={0} className="font-bold m-1">
-                    More
+                  <label
+                    tabIndex={0}
+                    className="font-bold m-1 flex justify-center items-center"
+                  >
+                    <img src={userProfile} alt="" className="w-10" />
                   </label>
                 )}
                 <ul

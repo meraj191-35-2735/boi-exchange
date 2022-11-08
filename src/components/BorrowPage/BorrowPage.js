@@ -7,7 +7,7 @@ import Books from "./Books";
 const BorrowPage = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/borrow")
+    fetch("https://floating-gorge-66618.herokuapp.com/borrow")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

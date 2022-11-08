@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
-import Users from "./components/AdminDashboard/Users";
 import BorrowMessage from "./components/BorrowPage/BorrowMessage";
 import BorrowPage from "./components/BorrowPage/BorrowPage";
 import BuyNow from "./components/BuyNow/BuyNow";
@@ -12,10 +11,10 @@ import AddBookExchange from "./components/MyProfile/AddBookExchange";
 import MyProfile from "./components/MyProfile/MyProfile";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
-import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
 import SignUp from "./components/SignUp/SignUp";
 import Store from "./components/Store/Store";
+import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 
 function App() {
   return (
@@ -56,11 +55,7 @@ function App() {
               <AdminDashboard></AdminDashboard>
             </RequireAdmin>
           }
-        >
-          <Route index element={<Users></Users>}></Route>
-          <Route path="user" element={<Users></Users>}></Route>
-        </Route>
-
+        ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

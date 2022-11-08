@@ -4,6 +4,7 @@ import ContactUs from "../ContactUs/ContactUs";
 import Events from "../Events/Events";
 import Features from "../Features/Features";
 import Footer from "../Footer/Footer";
+// import SliderFeature from "../SliderFeature/SliderFeature";
 import Trust from "../Trust/Trust";
 
 const Home = () => {

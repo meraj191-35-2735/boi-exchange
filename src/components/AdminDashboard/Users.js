@@ -9,7 +9,7 @@ const Users = () => {
     isLoading,
     refetch,
   } = useQuery("users", () =>
-    fetch("http://localhost:5000/user", {
+    fetch("https://floating-gorge-66618.herokuapp.com/user", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -19,7 +19,7 @@ const Users = () => {
   if (isLoading) {
     return <Loading></Loading>;
   }
-  console.log(users)
+  console.log(users);
   return (
     <div>
       <h2 className="text-2xl font-bold text-center py-3">

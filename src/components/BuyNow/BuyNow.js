@@ -9,7 +9,7 @@ const BuyNow = () => {
   const [buyingBook, setBuyingBook] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/book/${bookId}`)
+    fetch(`https://floating-gorge-66618.herokuapp.com/book/${bookId}`)
       .then((res) => res.json())
       .then((data) => setBuyingBook(data));
   }, [bookId]);

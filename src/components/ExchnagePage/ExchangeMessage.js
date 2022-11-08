@@ -25,7 +25,7 @@ const ExchangeMessage = () => {
       email: email,
     };
 
-    fetch(`http://localhost:5000/exchange/${bookId}`, {
+    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/${bookId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
