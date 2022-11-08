@@ -3,11 +3,10 @@ import AdminDashboard from "./components/AdminDashboard/AdminDashboard";
 import BorrowMessage from "./components/BorrowPage/BorrowMessage";
 import BorrowPage from "./components/BorrowPage/BorrowPage";
 import BuyNow from "./components/BuyNow/BuyNow";
-import ExchangeMessage from "./components/ExchnagePage/ExchangeMessage";
-import ExchangePage from "./components/ExchnagePage/ExchangePage";
+import ExchangeMessage from "./components/ExchangePage/ExchangeMessage";
+import ExchangePage from "./components/ExchangePage/ExchangePage";
 import Home from "./components/Home/Home";
 import Login from "./components/Login/Login";
-import AddBookExchange from "./components/MyProfile/AddBookExchange";
 import MyProfile from "./components/MyProfile/MyProfile";
 import Navbar from "./components/Navbar/Navbar";
 import NotFound from "./components/NotFound/NotFound";
@@ -15,6 +14,7 @@ import RequireAuth from "./components/RequireAuth/RequireAuth";
 import SignUp from "./components/SignUp/SignUp";
 import Store from "./components/Store/Store";
 import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
+import RequestsPage from "./components/RequestsPage/RequestsPage";
 
 function App() {
   return (
@@ -28,6 +28,7 @@ function App() {
         <Route path="/myProfile" element={<MyProfile></MyProfile>}></Route>
         <Route path="/exchange" element={<ExchangePage></ExchangePage>}></Route>
         <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
+        <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
         <Route
           path="/exchange/:bookId"
           element={<ExchangeMessage></ExchangeMessage>}
@@ -35,10 +36,6 @@ function App() {
         <Route
           path="/borrow/:bookId"
           element={<BorrowMessage></BorrowMessage>}
-        ></Route>
-        <Route
-          path="/myProfile/addToExchange"
-          element={<AddBookExchange></AddBookExchange>}
         ></Route>
         <Route
           path="buyNow/:bookId"

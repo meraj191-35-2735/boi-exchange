@@ -42,7 +42,7 @@ const Navbar = () => {
             <Link to="/borrow">Borrow</Link>
           </li>
           <li>
-            <Link to="/request">
+            <Link to="/requests">
               Request <div className="badge badge-secondary"></div>
             </Link>
           </li>
@@ -51,7 +51,7 @@ const Navbar = () => {
               <div className="dropdown lg:dropdown-left">
                 {user?.photoURL ? (
                   <label tabIndex={0} className="avatar">
-                    <div className="w-10 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                    <div className="w-6 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
                       <img src={user?.photoURL} alt="Profile" />
                     </div>
                   </label>
@@ -60,7 +60,7 @@ const Navbar = () => {
                     tabIndex={0}
                     className="font-bold m-1 flex justify-center items-center"
                   >
-                    <img src={userProfile} alt="" className="w-10" />
+                    <img src={userProfile} alt="" className="w-6" />
                   </label>
                 )}
                 <ul
