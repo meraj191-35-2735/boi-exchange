@@ -32,7 +32,6 @@ const Book = (book) => {
           <span className="font-bold">Price: </span>
           <span className="font-semibold">{price}</span>
         </p>
-
         <div className="card-actions">
           <button
             onClick={() => handleBookNow(_id)}
