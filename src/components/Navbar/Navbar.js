@@ -57,16 +57,18 @@ const Navbar = () => {
           <li>
             <Link to="/borrow">Borrow</Link>
           </li>
-          <li>
-            <Link to="/requests">
-              Request{" "}
-              {totalCount && (
+
+          {totalCount > 0 && (
+            <li>
+              <Link to="/requests">
+                Requests
                 <div className="badge badge-warning">
                   <p className="font-bold">{totalCount}</p>
                 </div>
-              )}
-            </Link>
-          </li>
+              </Link>
+            </li>
+          )}
+
           <li>
             {user ? (
               <div className="dropdown lg:dropdown-left">
@@ -110,7 +112,7 @@ const Navbar = () => {
           </li>
         </ul>
         <div className="logo">
-          <img src={logo} alt="" />
+          <img className="w-52" src={logo} alt="" />
         </div>
       </div>
     </nav>
