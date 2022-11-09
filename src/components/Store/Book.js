@@ -13,7 +13,7 @@ const Book = (book) => {
       data-aos-offset="200"
       data-aos-delay="50"
       data-aos-duration="2000"
-      className="bg-orange-100 rounded-lg shadow-lg"
+      className="bg-cyan-50 rounded-lg shadow-lg"
     >
       <figure className="px-10 pt-10">
         <img src={image} className="rounded-xl" alt="" />

@@ -17,7 +17,7 @@ const Trust = () => {
       </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-3">
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faGlobe} />
@@ -46,7 +46,7 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faLightbulb} />
@@ -75,7 +75,7 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card  bg-orange-100 shadow-xl">
+        <div className="card  bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faPeopleGroup} />
@@ -104,7 +104,7 @@ const Trust = () => {
             </VisibilitySensor>
           </div>
         </div>
-        <div className="card bg-orange-100 shadow-xl">
+        <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
             <p className="text-4xl text-green-500">
               <FontAwesomeIcon icon={faThumbsUp} />

@@ -7,7 +7,7 @@ const Events = () => {
       <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5 my-5">
         Upcoming Events
       </h1>
-      <div class="hero min-h-screen bg-orange-100">
+      <div class="hero min-h-screen bg-cyan-50">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <img
             src="https://placeimg.com/260/400/arch"

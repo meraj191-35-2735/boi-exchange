@@ -27,7 +27,7 @@ const ContactUs = () => {
       <h1 className="text-center font-serif font-bold text-green-600 text-3xl mb-5">
         Contact Us
       </h1>
-      <div id="contact" className="rounded-lg bg-orange-50">
+      <div id="contact" className="rounded-lg bg-cyan-50">
         <div className="hero ">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div
@@ -42,7 +42,7 @@ const ContactUs = () => {
               </p>
             </div>
             <div
-              className="card flex-shrink-0 w-full max-w-sm shadow-2xl my-10 bg-orange-100"
+              className="card flex-shrink-0 w-full max-w-sm shadow-2xl my-10 bg-cyan-100"
               data-aos="fade-right"
               data-aos-duration="1100"
             >

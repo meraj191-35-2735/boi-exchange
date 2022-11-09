@@ -3,7 +3,7 @@ import logo from "../../assets/images/logo/minilogo.png";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-orange-50 text-base-content">
+    <footer className="footer p-10 bg-cyan-50 text-base-content">
       <div>
         <img className="w-20 h-20" src={logo} alt="" />
         <p>

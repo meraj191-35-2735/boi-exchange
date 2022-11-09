@@ -22,7 +22,7 @@ const Books = ({ book }) => {
       data-aos="flip-up"
       data-aos-easing="ease-out-cubic"
       data-aos-duration="2000"
-      className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-orange-100 border rounded-lg"
+      className="grid lg:grid-cols-4 grid-cols-2 gap-5 mb-10 bg-cyan-50 border rounded-lg"
     >
       <div>
         {/* image */}
@@ -36,7 +36,7 @@ const Books = ({ book }) => {
       <div
         data-aos="fade-up"
         data-aos-duration="3000"
-        className="flex flex-col justify-center items-center bg-orange-200 rounded my-5"
+        className="flex flex-col justify-center items-center bg-cyan-100 rounded my-5"
       >
         {/* book name */}
         <h3 className="lg:text-xl text-lg font-bold ">{name}</h3>
@@ -51,7 +51,7 @@ const Books = ({ book }) => {
       <div
         data-aos="fade-down"
         data-aos-duration="3000"
-        className="flex flex-col justify-center items-center bg-orange-200 rounded my-5"
+        className="flex flex-col justify-center items-center bg-cyan-100 rounded my-5"
       >
         {/* user details */}
         <p>
