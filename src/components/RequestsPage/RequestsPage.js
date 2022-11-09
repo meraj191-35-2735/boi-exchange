@@ -1,27 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import auth from "../../firebase.init";
+import React from "react";
+
+import useBorrowRequest from "../../hooks/useBorrowRequest";
+import useExchangeRequest from "../../hooks/useExchangeRequest";
 import Loading from "../Loading/Loading";
 
 const RequestsPage = () => {
-  const [user] = useAuthState(auth);
-  const [myExchangeRequest, setExchangeRequest] = useState([]);
-  const [myBorrowRequest, setBorrowRequest] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setExchangeRequest(data));
-  }, [user?.email]);
-
+  const [myExchangeRequest] = useExchangeRequest();
+  const [myBorrowRequest] = useBorrowRequest();
   const myRequest = myExchangeRequest;
-
-  useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setBorrowRequest(data));
-  }, [user?.email]);
-
   const myBRequest = myBorrowRequest;
 
   if (myExchangeRequest.length === 0 && myBorrowRequest.length === 0) {

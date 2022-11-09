@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
 import userProfile from "../../assets/images/logo/userProfile.png";
@@ -7,18 +7,34 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
 import useAdmin from "../../hooks/useAdmin";
+import useExchangeRequest from "../../hooks/useExchangeRequest";
+import useBorrowRequest from "../../hooks/useBorrowRequest";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+  const [myExchangeRequest] = useExchangeRequest();
+  const [myBorrowRequest] = useBorrowRequest();
+  let countForEx = 0;
+  let countForBro = 0;
 
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
   };
-  useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/exchange/");
-  }, []);
+
+  for (let request of myExchangeRequest) {
+    if (request?.requesterDetails) {
+      countForEx++;
+    }
+  }
+  for (let request of myBorrowRequest) {
+    if (request?.requesterDetails) {
+      countForBro++;
+    }
+  }
+  const totalCount = countForEx + countForBro;
+
   return (
     <nav className="navbar">
       <div className="navbar-container container">
@@ -43,7 +59,12 @@ const Navbar = () => {
           </li>
           <li>
             <Link to="/requests">
-              Request <div className="badge badge-secondary"></div>
+              Request{" "}
+              {totalCount && (
+                <div className="badge badge-warning">
+                  <p className="font-bold">{totalCount}</p>
+                </div>
+              )}
             </Link>
           </li>
           <li>
@@ -69,7 +90,7 @@ const Navbar = () => {
                 >
                   {admin === false ? (
                     <li>
-                      <Link to="/myProfile">My Profile</Link>
+                      <Link to="/myProfile">Dashboard</Link>
                     </li>
                   ) : (
                     <li>
