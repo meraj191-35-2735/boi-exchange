@@ -13,7 +13,6 @@ const BuyNow = () => {
       .then((res) => res.json())
       .then((data) => setBuyingBook(data));
   }, [bookId]);
-  console.log(buyingBook);
 
   return (
     <div className="px-12">
@@ -26,7 +25,7 @@ const BuyNow = () => {
       <div className="grid lg:grid-cols-2 grid-cols-1 gap-5 mt-4">
         <div className="card bg-base-100 shadow-xl">
           <figure>
-            <img className="w-44" src={buyingBook.image} alt="Shoes" />
+            <img className="w-44" src={buyingBook.image} alt="Book" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">{buyingBook.name}</h2>

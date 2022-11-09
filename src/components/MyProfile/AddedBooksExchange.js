@@ -16,7 +16,6 @@ const AddedBooksExchange = () => {
     <>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
-          {/* <!-- head --> */}
           <thead>
             <tr>
               <th>Serial No.</th>
