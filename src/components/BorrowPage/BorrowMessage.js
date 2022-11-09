@@ -1,20 +1,39 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
 import verifyLogo from "../../assets/images/logo/verify-logo.png";
+import auth from "../../firebase.init";
 import Footer from "../Footer/Footer";
 
 const BorrowMessage = () => {
+  const [user] = useAuthState(auth);
+  const { bookId } = useParams();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const requesterName = event.target.name.value;
     const requesterPhone = event.target.phone.value;
     const requesterAddress = event.target.address.value;
     const requesterDuration = event.target.duration.value;
-    console.log(
-      requesterName,
-      requesterPhone,
-      requesterAddress,
-      requesterDuration
-    );
+    const email = user.email;
+
+    const requesterDetails = {
+      name: requesterName,
+      phone: requesterPhone,
+      address: requesterAddress,
+      duration: requesterDuration,
+      email: email,
+    };
+    console.log(requesterDetails);
+    fetch(`http://localhost:5000/borrow/${bookId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requesterDetails),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
   return (
     <div>
