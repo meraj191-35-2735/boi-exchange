@@ -24,6 +24,7 @@ const AddedBooksBorrow = () => {
               <th>Book Name</th>
               <th>Writer</th>
               <th>Category</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -37,6 +38,11 @@ const AddedBooksBorrow = () => {
                   <td>{book.name}</td>
                   <td>{book.writter}</td>
                   <td>{book.category}</td>
+                  <td>
+                    <p className="btn btn-sm border-2 btn-error font-bold text-white hover:bg-white hover:border-2 hover:text-red-500 hover:rounded-full">
+                      Delete
+                    </p>
+                  </td>
                 </tr>
               );
             })}
