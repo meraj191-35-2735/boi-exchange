@@ -1,8 +1,66 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+// import { toast } from "react-toastify";
 
 const AddBookExchange = () => {
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+  const imageStorageKey = `ff0ddab986e357675f654a478f646949`;
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    const name = event.target.bookName.value;
+    const category = event.target.category.value;
+    const writter = event.target.writer.value;
+    const image = event.target.image.files[0];
+    const interestedBooksType = event.target.interestedBook.value;
+    const userName = user.displayName;
+    const userEmail = user.email;
+    const userLocation = event.target.userLocation.value;
+    const userContact = event.target.userContact.value;
+    let formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const image = result.data.url;
+          // send to database
+          fetch("https://floating-gorge-66618.herokuapp.com/exchange", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify({
+              name,
+              category,
+              writter,
+              image,
+              interestedBooksType,
+              userName,
+              userEmail,
+              userLocation,
+              userContact,
+            }),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                // toast.success("Book added successfully");
+                navigate("/");
+              } else {
+                // toast.error("Failed to add this book, try again!");
+              }
+            });
+        }
+      });
   };
   return (
     <div className="flex justify-center items-center">
@@ -19,24 +77,27 @@ const AddBookExchange = () => {
               <hr className="border-2 border-success" />
               <p className="font-semibold my-1 font-mono">Book Name:</p>
               <input
-                className="input input-bordered input-success w-full max-w-xs input-sm"
+                className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
                 type="text"
                 name="bookName"
                 id="bookName"
+                required
               />
               <p className="font-semibold my-1 font-mono">Category:</p>
               <input
-                className="input input-bordered input-success w-full max-w-xs input-sm"
+                className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
                 type="text"
                 name="category"
                 id="category"
+                required
               />
               <p className="font-semibold my-1 font-mono">Book Writer:</p>
               <input
-                className="input input-bordered input-success w-full max-w-xs input-sm"
+                className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
                 type="text"
                 name="writer"
                 id="writer"
+                required
               />
               <p className="font-semibold my-1 font-mono">Image:</p>
               <input
@@ -44,15 +105,17 @@ const AddBookExchange = () => {
                 type="file"
                 name="image"
                 id="image"
+                required
               />
               <p className="font-semibold my-1 font-mono">
                 Interested Book for exchange:
               </p>
               <input
-                className="input input-bordered input-success w-full max-w-xs input-sm"
+                className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
                 type="text"
                 name="interestedBook"
                 id="interestedBook"
+                required
               />
             </div>
           </div>
@@ -65,31 +128,37 @@ const AddBookExchange = () => {
             <hr className="border-2 border-success" />
             <p className="font-semibold my-1 font-mono">Your Name:</p>
             <input
-              className="input input-bordered input-success w-full max-w-xs input-sm"
+              className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
               type="text"
               name="userName"
               id="userName"
+              value={user.displayName}
+              disabled
             />
             <p className="font-semibold my-1 font-mono">Your Email:</p>
             <input
-              className="input input-bordered input-success w-full max-w-xs input-sm"
+              className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
               type="email"
               name="userEmail"
               id="userEmail"
+              value={user?.email}
+              disabled
             />
             <p className="font-semibold my-1 font-mono">Your Location:</p>
             <input
-              className="input input-bordered input-success w-full max-w-xs input-sm"
+              className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
               type="text"
               name="userLocation"
               id="userLocation"
+              required
             />
             <p className="font-semibold my-1 font-mono">Phone:</p>
             <input
-              className="input input-bordered input-success w-full max-w-xs input-sm"
+              className="input input-bordered input-success w-full max-w-xs input-sm font-mono"
               type="text"
               name="userContact"
               id="userContact"
+              required
             />
           </div>
         </div>

@@ -8,7 +8,7 @@
     "userEmail": "abc@def.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা, সায়েন্স ফিকশন"
   },
   {
     "name": "শূন্য",
@@ -19,7 +19,7 @@
     "userEmail": "shamsad.meraj@gmail.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা, সায়েন্স ফিকশন"
   },
   {
     "name": "মুক্তিযুদ্ধের ইতিহাস",
@@ -30,7 +30,7 @@
     "userEmail": "abc@def.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা, সায়েন্স ফিকশন"
   },
   {
     "name": "সাতকাহন",
@@ -41,7 +41,7 @@
     "userEmail": "shamsad.meraj@gmail.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা, সায়েন্স ফিকশন"
   },
   {
     "name": "শেষের কবিতা",
@@ -52,7 +52,7 @@
     "userEmail": "shamsad.meraj@gmail.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা,সায়েন্স ফিকশন"
   },
   {
     "name": "মা",
@@ -63,6 +63,6 @@
     "userEmail": "shamsad.meraj@gmail.com",
     "userLocation": "Mirpur 1, Dhaka",
     "userContact": "01710346426",
-    "interestedBooksType": ["ব্যঙ্গ ও রম্যরচনা", "সায়েন্স ফিকশন"]
+    "interestedBooksType": "ব্যঙ্গ ও রম্যরচনা,সায়েন্স ফিকশন"
   }
 ]

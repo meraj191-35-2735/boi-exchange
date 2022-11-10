@@ -17,6 +17,7 @@ import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequestsPage from "./components/RequestsPage/RequestsPage";
 import ExchangeRequestAccept from "./components/RequestsPage/ExchangeRequestAccept";
 import BorrowRequestAccept from "./components/RequestsPage/BorrowRequestAccept";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

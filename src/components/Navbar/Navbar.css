@@ -61,9 +61,6 @@
   transition: color 0.3s ease-in-out;
 }
 
-.navbar a:hover {
-  color: #117964;
-}
 
 @media (max-width: 768px) {
   .navbar {

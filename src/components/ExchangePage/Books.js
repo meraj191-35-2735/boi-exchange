@@ -70,7 +70,7 @@ const Books = ({ book }) => {
         <p>
           <span className="font-bold">Interested Category for Exchange:</span>
           <br />
-          {interestedBooksType.map((b) => `${b}, `)}
+          {interestedBooksType}
         </p>
       </div>
       <div className="flex justify-center items-center">

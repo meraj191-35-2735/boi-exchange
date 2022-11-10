@@ -46,21 +46,29 @@ const Navbar = () => {
         </div>
         <ul className="menu-items">
           <li>
-            <Link to="/">Home</Link>
+            <Link className="hover:text-cyan-600 font-serif" to="/">
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/store">Store</Link>
+            <Link className="hover:text-cyan-600 font-serif" to="/store">
+              Store
+            </Link>
           </li>
           <li>
-            <Link to="/exchange">Exchange</Link>
+            <Link className="hover:text-cyan-600 font-serif" to="/exchange">
+              Exchange
+            </Link>
           </li>
           <li>
-            <Link to="/borrow">Borrow</Link>
+            <Link className="hover:text-cyan-600 font-serif" to="/borrow">
+              Borrow
+            </Link>
           </li>
 
           {totalCount > 0 && (
             <li>
-              <Link to="/requests">
+              <Link className="hover:text-cyan-600 font-serif" to="/requests">
                 Requests
                 <div className="badge badge-warning">
                   <p className="font-bold">{totalCount}</p>
@@ -74,7 +82,7 @@ const Navbar = () => {
               <div className="dropdown lg:dropdown-left">
                 {user?.photoURL ? (
                   <label tabIndex={0} className="avatar">
-                    <div className="w-6 rounded-full ring ring-secondary ring-offset-base-100 ring-offset-2">
+                    <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
                       <img src={user?.photoURL} alt="Profile" />
                     </div>
                   </label>
@@ -83,7 +91,9 @@ const Navbar = () => {
                     tabIndex={0}
                     className="font-bold m-1 flex justify-center items-center"
                   >
-                    <img src={userProfile} alt="" className="w-6" />
+                    <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
+                      <img src={userProfile} alt="" className="w-6" />
+                    </div>
                   </label>
                 )}
                 <ul
@@ -107,7 +117,9 @@ const Navbar = () => {
                 </ul>
               </div>
             ) : (
-              <Link to="/login">Login</Link>
+              <Link className="hover:text-cyan-600 font-serif" to="/login">
+                Login
+              </Link>
             )}
           </li>
         </ul>
