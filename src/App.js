@@ -15,10 +15,11 @@ import SignUp from "./components/SignUp/SignUp";
 import Store from "./components/Store/Store";
 import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequestsPage from "./components/RequestsPage/RequestsPage";
+import RequestAcceptPage from "./components/RequestsPage/RequestAcceptPage";
 
 function App() {
   return (
-    <div className="px-4">
+    <div className="px-4 w-full">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -29,6 +30,10 @@ function App() {
         <Route path="/exchange" element={<ExchangePage></ExchangePage>}></Route>
         <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
         <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
+        <Route
+          path="/exchangeAcceptance/:bookId"
+          element={<RequestAcceptPage></RequestAcceptPage>}
+        ></Route>
         <Route
           path="/exchange/:bookId"
           element={<ExchangeMessage></ExchangeMessage>}

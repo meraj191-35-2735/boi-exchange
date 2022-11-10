@@ -24,8 +24,8 @@ const BorrowMessage = () => {
       duration: requesterDuration,
       email: email,
     };
-    console.log(requesterDetails);
-    fetch(`http://localhost:5000/borrow/${bookId}`, {
+
+    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${bookId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

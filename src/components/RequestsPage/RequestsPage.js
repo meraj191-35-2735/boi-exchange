@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useBorrowRequest from "../../hooks/useBorrowRequest";
 import useExchangeRequest from "../../hooks/useExchangeRequest";
 import Loading from "../Loading/Loading";
@@ -6,6 +7,7 @@ import Loading from "../Loading/Loading";
 const RequestsPage = () => {
   const [myExchangeRequest] = useExchangeRequest();
   const [myBorrowRequest] = useBorrowRequest();
+  const navigate = useNavigate();
 
   if (myExchangeRequest.length === 0 && myBorrowRequest.length === 0) {
     return <Loading></Loading>;
@@ -13,6 +15,10 @@ const RequestsPage = () => {
 
   const myRequest = myExchangeRequest;
   const myBRequest = myBorrowRequest;
+
+  const handleExchangeAccept = (book) => {
+    navigate(`/exchangeAcceptance/${book._id}`);
+  };
 
   return (
     <>
@@ -33,10 +39,13 @@ const RequestsPage = () => {
                 </span>
               </p>
               <div className="flex justify-around items-center w-1/2 mt-2">
-                <button className="btn btn-sm text-white font-bold btn-success hover:rounded-full hover:bg-white hover:border-2 hover:text-success">
+                <button
+                  onClick={() => handleExchangeAccept(m)}
+                  className="btn btn-sm text-white font-bold btn-success hover:rounded-full hover:bg-white hover:border-2 hover:text-success"
+                >
                   Accept
                 </button>{" "}
-                <button className="btn btn-sm text-white font-bold btn-warning hover:rounded-full hover:bg-white hover:border-2 hover:text-warning">
+                <button className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error">
                   Reject
                 </button>
               </div>
@@ -64,26 +73,13 @@ const RequestsPage = () => {
                 <button className="btn btn-sm text-white font-bold btn-success hover:rounded-full hover:bg-white hover:border-2 hover:text-success">
                   Accept
                 </button>{" "}
-                <button className="btn btn-sm text-white font-bold btn-warning hover:rounded-full hover:bg-white hover:border-2 hover:text-warning">
+                <button className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error">
                   Reject
                 </button>
               </div>
             </div>
           )
       )}
-      {/* {myRequest.map((r) => {
-        if (!r?.requesterDetails) {
-          myBRequest.map((r) => {
-            if (!r?.requesterDetails) {
-            }
-          });
-        }
-        return (
-          <div className="flex justify-center items-center ">
-            <h1>There is no Request for you!</h1>
-          </div>
-        );
-      })} */}
     </>
   );
 };
