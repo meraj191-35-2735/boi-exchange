@@ -19,6 +19,42 @@ const RequestsPage = () => {
   const handleExchangeAccept = (book) => {
     navigate(`/exchangeAcceptance/${book._id}`);
   };
+  const handleBorrowAccept = (book) => {
+    navigate(`/borrowAcceptance/${book._id}`);
+  };
+  const handleExchangeReject = (book) => {
+    const requestResult = {
+      requesterEmail: book?.requesterDetails?.email,
+    };
+    delete book.requesterDetails;
+    fetch(`http://localhost:5000/exchange/reject/${book?._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requestResult),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    navigate("/");
+  };
+
+  const handleBorrowReject = (book) => {
+    const requestResult = {
+      requesterEmail: book?.requesterDetails?.email,
+    };
+    delete book?.requesterDetails;
+    fetch(`http://localhost:5000/borrow/reject/${book?._id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requestResult),
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+    navigate("/");
+  };
 
   return (
     <>
@@ -45,7 +81,10 @@ const RequestsPage = () => {
                 >
                   Accept
                 </button>{" "}
-                <button className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error">
+                <button
+                  onClick={() => handleExchangeReject(m)}
+                  className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error"
+                >
                   Reject
                 </button>
               </div>
@@ -70,10 +109,16 @@ const RequestsPage = () => {
                 Days
               </p>
               <div className="flex justify-around items-center w-1/2 mt-2">
-                <button className="btn btn-sm text-white font-bold btn-success hover:rounded-full hover:bg-white hover:border-2 hover:text-success">
+                <button
+                  onClick={() => handleBorrowAccept(m)}
+                  className="btn btn-sm text-white font-bold btn-success hover:rounded-full hover:bg-white hover:border-2 hover:text-success"
+                >
                   Accept
                 </button>{" "}
-                <button className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error">
+                <button
+                  onClick={() => handleBorrowReject(m)}
+                  className="btn btn-sm text-white font-bold btn-error hover:rounded-full hover:bg-white hover:border-2 hover:text-error"
+                >
                   Reject
                 </button>
               </div>

@@ -15,7 +15,8 @@ import SignUp from "./components/SignUp/SignUp";
 import Store from "./components/Store/Store";
 import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequestsPage from "./components/RequestsPage/RequestsPage";
-import RequestAcceptPage from "./components/RequestsPage/RequestAcceptPage";
+import ExchangeRequestAccept from "./components/RequestsPage/ExchangeRequestAccept";
+import BorrowRequestAccept from "./components/RequestsPage/BorrowRequestAccept";
 
 function App() {
   return (
@@ -32,7 +33,11 @@ function App() {
         <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
         <Route
           path="/exchangeAcceptance/:bookId"
-          element={<RequestAcceptPage></RequestAcceptPage>}
+          element={<ExchangeRequestAccept></ExchangeRequestAccept>}
+        ></Route>
+        <Route
+          path="/borrowAcceptance/:bookId"
+          element={<BorrowRequestAccept></BorrowRequestAccept>}
         ></Route>
         <Route
           path="/exchange/:bookId"

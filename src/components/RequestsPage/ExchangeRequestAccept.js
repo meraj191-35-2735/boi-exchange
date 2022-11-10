@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import DateTimePicker from "react-datetime-picker";
 import { useNavigate, useParams } from "react-router-dom";
 
-const RequestAcceptPage = () => {
+const ExchangeRequestAccept = () => {
   const { bookId } = useParams();
   const [value, onChange] = useState(new Date());
   const [book, setBook] = useState({});
@@ -48,6 +48,7 @@ const RequestAcceptPage = () => {
             id="messageAccept"
             cols="33"
             rows="5"
+            required
           ></textarea>
           <p className="font-bold text-lg my-3">Pick a Date &#x2935;</p>
           <DateTimePicker onChange={onChange} value={value} />
@@ -63,4 +64,4 @@ const RequestAcceptPage = () => {
   );
 };
 
-export default RequestAcceptPage;
+export default ExchangeRequestAccept;
