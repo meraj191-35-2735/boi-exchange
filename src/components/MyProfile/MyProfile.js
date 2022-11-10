@@ -11,7 +11,7 @@ const MyProfile = () => {
     setToggleState(index);
   };
   return (
-    <div className="mt-3">
+    <div className="mt-1">
       <div className="bloc-tabs">
         <button
           className={toggleState === 1 ? "tabs active-tabs" : "tabs"}

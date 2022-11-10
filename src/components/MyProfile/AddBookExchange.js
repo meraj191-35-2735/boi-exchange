@@ -1,15 +1,22 @@
 import React from "react";
 
 const AddBookExchange = () => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   return (
     <div className="flex justify-center items-center">
-      <form className=" py-3 px-10 bg-cyan-100 shadow-inner shadow-success my-5 rounded-xl">
+      <form
+        onSubmit={handleSubmit}
+        className="py-3 px-10 bg-cyan-100 shadow-inner shadow-success  rounded-xl"
+      >
         <div className="flex flex-col w-full lg:flex-row">
           <div className="grid flex-grow  rounded-box place-items-center">
             <div className="flex flex-col justify-center items-center ">
               <h4 className="font-bold text-xl font-serif my-3 text-center">
                 Book Information
               </h4>
+              <hr className="border-2 border-success" />
               <p className="font-semibold my-1 font-mono">Book Name:</p>
               <input
                 className="input input-bordered input-success w-full max-w-xs input-sm"
@@ -55,6 +62,7 @@ const AddBookExchange = () => {
             <h4 className="font-bold text-xl font-serif my-3 text-center">
               User Information
             </h4>
+            <hr className="border-2 border-success" />
             <p className="font-semibold my-1 font-mono">Your Name:</p>
             <input
               className="input input-bordered input-success w-full max-w-xs input-sm"

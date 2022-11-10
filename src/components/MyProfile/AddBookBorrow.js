@@ -10,6 +10,7 @@ const AddBookBorrow = () => {
               <h4 className="font-bold text-xl font-serif my-3 text-center">
                 Book Information
               </h4>
+              <hr className="border-2 border-success" />
               <p className="font-semibold my-1 font-mono">Book Name:</p>
               <input
                 className="input input-bordered input-success w-full max-w-xs input-sm"
@@ -53,6 +54,7 @@ const AddBookBorrow = () => {
             <h4 className="font-bold text-xl font-serif my-3 text-center">
               User Information
             </h4>
+            <hr className="border-2 border-success" />
             <p className="font-semibold my-1 font-mono">Your Name:</p>
             <input
               className="input input-bordered input-success w-full max-w-xs input-sm"
