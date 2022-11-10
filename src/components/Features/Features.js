@@ -17,12 +17,14 @@ const Features = () => {
             <img src={feature1} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Buy & Sell Books</h2>
-            <p>Here, You can buy a book and also sell read books.</p>
+            <h2 className="card-title font-serif">Buy & Sell Books</h2>
+            <p className="font-serif">
+              Here, You can buy a book and also sell read books.
+            </p>
             <div className="card-actions">
               <Link
                 to="/store"
-                className="btn btn-sm btn-outline hover:rounded-full"
+                className="btn btn-sm btn-outline hover:rounded-full font-serif"
               >
                 Get Started
               </Link>
@@ -35,12 +37,14 @@ const Features = () => {
             <img src={feature2} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Borrow & Return Book</h2>
-            <p>Here, You can borrow a book by giving a returning date.</p>
+            <h2 className="card-title font-serif">Borrow & Return Book</h2>
+            <p className="font-serif">
+              Here, You can borrow a book by giving a returning date.
+            </p>
             <div className="card-actions">
               <Link
                 to="/borrow"
-                className="btn btn-sm btn-outline hover:rounded-full"
+                className="btn btn-sm btn-outline hover:rounded-full font-serif"
               >
                 Get Started
               </Link>
@@ -53,12 +57,14 @@ const Features = () => {
             <img src={feature3} alt="Shoes" className="rounded-xl" />
           </figure>
           <div className="card-body items-center text-center">
-            <h2 className="card-title">Give & Take Book</h2>
-            <p>Here, You can exchange your book with other users.</p>
+            <h2 className="card-title font-serif">Give & Take Book</h2>
+            <p className="font-serif">
+              Here, You can exchange your book with other users.
+            </p>
             <div className="card-actions">
               <Link
                 to="/exchange"
-                className="btn btn-sm btn-outline hover:rounded-full"
+                className="btn btn-sm btn-outline hover:rounded-full font-serif"
               >
                 Get Started
               </Link>

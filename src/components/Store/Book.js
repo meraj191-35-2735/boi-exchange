@@ -19,23 +19,23 @@ const Book = (book) => {
         <img src={image} className="rounded-xl" alt="" />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{name}</h2>
+        <h2 className="card-title font-serif">{name}</h2>
         <p>
-          <span className="font-bold">By</span>{" "}
-          <span className="text-green-700 font-thin">{writter}</span>
+          <span className="font-bold font-serif">By</span>{" "}
+          <span className="text-green-700 font-thin font-serif">{writter}</span>
         </p>
         <p>
-          <span className="font-bold">Category: </span>
+          <span className="font-bold font-serif">Category: </span>
           {category}
         </p>
         <p>
-          <span className="font-bold">Price: </span>
-          <span className="font-semibold">{price}</span>
+          <span className="font-bold font-serif">Price: </span>
+          <span className="font-semibold font-serif">{price}</span>
         </p>
         <div className="card-actions">
           <button
             onClick={() => handleBookNow(_id)}
-            className="btn btn-sm btn-outline hover:rounded-full mt-3 "
+            className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
           >
             Buy Now{" "}
           </button>

@@ -35,8 +35,8 @@ const ContactUs = () => {
               data-aos="flip-down"
               data-aos-duration="1100"
             >
-              <h1 className="text-5xl  font-bold">Get In Touch!</h1>
-              <p className="py-6 ">
+              <h1 className="text-5xl  font-bold font-serif">Get In Touch!</h1>
+              <p className="py-6 font-serif">
                 Send us email if you think we can help you out with any of your
                 Book Exchange or, Borrow Related Problem.
               </p>
@@ -87,7 +87,7 @@ const ContactUs = () => {
                 <div className="form-control mt-6">
                   <input
                     type="submit"
-                    className="btn hover:bg-transparent hover:border-2 hover:text-black hover:ease-in hover:duration-500 duration-500 ease-out text-white font-semibold hover:font-semibold hover:rounded-full"
+                    className="btn font-serif hover:bg-white hover:border-2 hover:text-black hover:ease-in hover:duration-500 duration-500 ease-out text-white font-bold hover:font-bold hover:rounded-full"
                     value="Send"
                   />
                 </div>

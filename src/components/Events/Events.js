@@ -1,7 +1,6 @@
 import React from "react";
 
 const Events = () => {
-  
   return (
     <div className="px-5">
       <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5 my-5">
@@ -15,14 +14,12 @@ const Events = () => {
             alt=""
           />
           <div>
-            <h1 class="text-5xl font-bold">Book Exchange Fair</h1>
-            <p class="pt-6">
+            <h1 class="text-5xl font-bold font-serif">Book Exchange Fair</h1>
+            <p class="pt-6 font-serif">
               At DIU, Ashulia, Savar, Dhaka. <br />
               You can Join and Exchange your Book.
             </p>
-            <h2>
-              
-            </h2>
+            <h2></h2>
           </div>
         </div>
       </div>

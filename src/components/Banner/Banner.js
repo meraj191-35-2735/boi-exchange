@@ -12,8 +12,8 @@ const Banner = () => {
       <div className="hero-overlay bg-opacity-70"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
-          <h1 className="mb-5 text-5xl font-bold">Boi Exchange</h1>
-          <p className="mb-5">
+          <h1 className="mb-5 text-5xl font-bold font-serif">Boi Exchange</h1>
+          <p className="mb-5 font-serif">
             Boi Exchange is an utterly simple to use platform. We at Book
             exchange wanted to make sure that it is easy for book lovers of all
             age groups discover the joy of reading. It is a very intuitive

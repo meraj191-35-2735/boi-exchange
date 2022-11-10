@@ -27,10 +27,11 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p className="font-bold">Countries: </p>
+                  <p className="font-bold font-serif">Countries: </p>
                   {isVisible ? (
-                    <h2 className="text-center text-4xl font-bold ">
+                    <h2 className="text-center text-2xl font-bold">
                       <CountUp
+                        className="font-serif"
                         start={1}
                         end={3}
                         duration={2}
@@ -56,10 +57,11 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p className="font-bold">Books: </p>
+                  <p className="font-bold font-serif">Books: </p>
                   {isVisible ? (
-                    <h2 className="text-center text-4xl font-bold ">
+                    <h2 className="text-center text-2xl font-bold ">
                       <CountUp
+                        className="font-serif"
                         start={1}
                         end={2}
                         duration={2}
@@ -85,10 +87,11 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p className="font-bold">Customers: </p>
+                  <p className="font-bold font-serif">Customers: </p>
                   {isVisible ? (
-                    <h2 className="text-center text-4xl font-bold ">
+                    <h2 className="text-center text-2xl font-bold ">
                       <CountUp
+                        className="font-serif"
                         start={1}
                         end={5}
                         duration={2}
@@ -114,10 +117,11 @@ const Trust = () => {
             <VisibilitySensor>
               {({ isVisible }) => (
                 <div>
-                  <p className="font-bold">Reviews: </p>
+                  <p className="font-bold font-serif">Reviews: </p>
                   {isVisible ? (
-                    <h2 className="text-center text-4xl font-bold ">
+                    <h2 className="text-center text-2xl font-bold ">
                       <CountUp
+                        className="font-serif"
                         start={1}
                         end={5}
                         duration={2}
