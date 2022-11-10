@@ -50,7 +50,7 @@ const AddBookExchange = () => {
             </div>
           </div>
           <div className="divider lg:divider-horizontal"></div>
-          <div className="flex flex-col justify-center items-center w-1/2">
+          <div className="flex flex-col justify-center items-center w-full lg:w-1/2">
             {" "}
             <h4 className="font-bold text-xl font-serif my-3 text-center">
               User Information
