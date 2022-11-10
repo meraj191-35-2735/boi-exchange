@@ -27,13 +27,16 @@ const RequestsPage = () => {
       requesterEmail: book?.requesterDetails?.email,
     };
     delete book.requesterDetails;
-    fetch(`http://localhost:5000/exchange/reject/${book?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(requestResult),
-    })
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/exchange/reject/${book?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(requestResult),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     navigate("/");
@@ -44,13 +47,16 @@ const RequestsPage = () => {
       requesterEmail: book?.requesterDetails?.email,
     };
     delete book?.requesterDetails;
-    fetch(`http://localhost:5000/borrow/reject/${book?._id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(requestResult),
-    })
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/reject/${book?._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(requestResult),
+      }
+    )
       .then((res) => res.json())
       .then((data) => console.log(data));
     navigate("/");
