@@ -1,22 +1,27 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import useAdmin from "../../hooks/useAdmin";
 
 const Book = (book) => {
   const { _id, name, image, category, writter, price } = book.book;
   const navigate = useNavigate();
+  const [admin] = useAdmin();
   const handleBookNow = (bookId) => {
     navigate(`/buyNow/${bookId}`);
   };
   return (
     <div
-      data-aos="fade-in"
+      data-aos="fade-down"
       data-aos-offset="200"
       data-aos-delay="50"
       data-aos-duration="2000"
       className="bg-cyan-50 rounded-lg shadow-lg"
     >
-      <figure className="px-10 pt-10">
-        <img src={image} className="rounded-xl" alt="" />
+      <figure className="pt-2 pb-0">
+        <div className="flex justify-center items-center">
+          {" "}
+          <img src={image} className="rounded-xl w-40" alt="" />
+        </div>
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title font-serif">{name}</h2>
