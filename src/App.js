@@ -20,6 +20,8 @@ import BorrowRequestAccept from "./components/RequestsPage/BorrowRequestAccept";
 import { ToastContainer } from "react-toastify";
 import Users from "./components/AdminDashboard/Users";
 import LibrarianManage from "./components/AdminDashboard/LibrarianManage";
+import Books from "./components/AdminDashboard/Books";
+import AddBook from "./components/AdminDashboard/AddBook";
 
 function App() {
   return (
@@ -71,6 +73,8 @@ function App() {
           path="/admin/dashboard/librarians"
           element={<LibrarianManage></LibrarianManage>}
         ></Route>
+        <Route path="/admin/dashboard/books" element={<Books></Books>}></Route>
+        <Route path="/admin/dashboard/books/addBook" element={<AddBook></AddBook>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer

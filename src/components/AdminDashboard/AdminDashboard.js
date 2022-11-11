@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import info from "../../assets/images/logo/info.png";
 import manage from "../../assets/images/logo/manage.png";
 import { Link } from "react-router-dom";
-import Chart from "./Chart";
+import useBooks from "../../hooks/useBooks";
+// import Chart from "./Chart";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
+  const [books] = useBooks();
   useEffect(() => {
     fetch("https://floating-gorge-66618.herokuapp.com/user")
       .then((res) => res.json())
@@ -18,7 +20,7 @@ const Dashboard = () => {
         <div className="bg-blue-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length}K
+              {users.length}
             </h1>
             <h3 className="font-bold text-xl  text-white font-serif">Users</h3>
           </div>
@@ -35,19 +37,24 @@ const Dashboard = () => {
         <div className="bg-green-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length + 1}K
+              {books.length}
             </h1>
             <h3 className="font-bold text-xl  text-white font-serif">Books</h3>
           </div>
-          <div className="flex">
-            <h5 className="font-semibold font-serif text-white">Details </h5>
-            <img className="w-5 ml-1" src={info} alt="" />
+          <div>
+            <Link
+              className="flex btn btn-ghost btn-sm"
+              to="/admin/dashboard/books"
+            >
+              <h5 className="font-semibold font-serif text-white">Details </h5>
+              <img className="w-5 ml-1" src={info} alt="" />
+            </Link>
           </div>
         </div>
         <div className="bg-yellow-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length}00
+              {users.length}
             </h1>
             <h3 className="font-bold text-xl  text-white font-serif">
               Reviews
@@ -78,7 +85,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Chart></Chart>
+      {/* <Chart></Chart> */}
     </div>
   );
 };

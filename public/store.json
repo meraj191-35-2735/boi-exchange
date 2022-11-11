@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "name": "নিজ দায়িত্বে হাসুন",
     "category": "ব্যঙ্গ ও রম্যরচনা",
     "writter": "ইমন চৌধুরী",
@@ -8,7 +7,6 @@
     "image": "https://i.ibb.co/hdqKmNZ/1.png"
   },
   {
-    "id": 2,
     "name": "শূন্য",
     "category": "সায়েন্স ফিকশন",
     "writter": "হুমায়ূন আহমেদ",
@@ -16,7 +14,6 @@
     "image": "https://i.ibb.co/Jk98135/2.png"
   },
   {
-    "id": 3,
     "name": "মুক্তিযুদ্ধের ইতিহাস",
     "category": "মুক্তিযুদ্ধের ইতিহাস: প্রসঙ্গ মুক্তিযুদ্ধ",
     "writter": "মুহম্মদ জাফর ইকবাল",
@@ -24,7 +21,6 @@
     "image": "https://i.ibb.co/9WPFB7j/3.png"
   },
   {
-    "id": 4,
     "name": "সাতকাহন",
     "category": "সমকালীন উপন্যাস",
     "writter": "সমরেশ মজুমদার",
@@ -32,7 +28,6 @@
     "image": "https://i.ibb.co/1XK0q0n/4.png"
   },
   {
-    "id": 5,
     "name": "শেষের কবিতা",
     "category": "চিরায়ত উপন্যাস",
     "writter": "রবীন্দ্রনাথ ঠাকুর",
@@ -40,7 +35,6 @@
     "image": "https://i.ibb.co/QjPMg2W/5.png"
   },
   {
-    "id": 6,
     "name": "মা",
     "category": "মুক্তিযুদ্ধের উপন্যাস",
     "writter": "আনিসুল হক",
@@ -48,7 +42,6 @@
     "image": "https://i.ibb.co/M807y6V/6.png"
   },
   {
-    "id": 7,
     "name": "পাইথন দিয়ে প্রোগ্রামিং শেখা",
     "category": "পাইথন প্রোগ্রামিং",
     "writter": "তামিম শাহরিয়ার সুবিন",
@@ -56,7 +49,6 @@
     "image": "https://i.ibb.co/48CkkFP/7.png"
   },
   {
-    "id": 8,
     "name": "জয়ল্যান্ড",
     "category": "রহস্য, গোয়েন্দা, ভৌতিক, মিথ, থ্রিলার, ও অ্যাডভেঞ্চার: অনুবাদ",
     "writter": "স্টিফেন কিং ,  কিশোর পাশা ইমন (অনুবাদক)",
@@ -64,7 +56,6 @@
     "image": "https://i.ibb.co/m6rhDbJ/8.png"
   },
   {
-    "id": 9,
     "name": "সালাত, দু’আ ও যিকর",
     "category": "সালাত/নামায",
     "writter": " ড. খোন্দকার আব্দুল্লাহ জাহাঙ্গীর",
@@ -72,7 +63,6 @@
     "image": "https://i.ibb.co/t2pkq4Y/9.png"
   },
   {
-    "id": 10,
     "name": "শেষ",
     "category": "সমকালীন উপন্যাস",
     "writter": "জুনায়েদ ইভান",
@@ -80,7 +70,6 @@
     "image": "https://i.ibb.co/5sVzQdp/10.png"
   },
   {
-    "id": 11,
     "name": "আহ্বান",
     "category": "ইসলামি বই: আত্ম-উন্নয়ন",
     "writter": " মিজানুর রহমান আজহারি",
@@ -88,7 +77,6 @@
     "image": "https://i.ibb.co/C2khj8z/11.png"
   },
   {
-    "id": 12,
     "name": "চুম্বকের চমক",
     "category": "Science Kit",
     "writter": "OnnoRokom Electronics Co. Ltd.",
