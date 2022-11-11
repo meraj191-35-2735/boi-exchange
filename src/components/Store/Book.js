@@ -1,11 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useAdmin from "../../hooks/useAdmin";
 
 const Book = (book) => {
   const { _id, name, image, category, writter, price } = book.book;
   const navigate = useNavigate();
-  const [admin] = useAdmin();
   const handleBookNow = (bookId) => {
     navigate(`/buyNow/${bookId}`);
   };
