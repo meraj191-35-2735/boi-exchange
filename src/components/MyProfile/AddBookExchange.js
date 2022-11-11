@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const AddBookExchange = () => {
   const [user] = useAuthState(auth);
@@ -16,8 +16,8 @@ const AddBookExchange = () => {
     const writter = event.target.writer.value;
     const image = event.target.image.files[0];
     const interestedBooksType = event.target.interestedBook.value;
-    const userName = user.displayName;
-    const userEmail = user.email;
+    const userName = user?.displayName;
+    const userEmail = user?.email;
     const userLocation = event.target.userLocation.value;
     const userContact = event.target.userContact.value;
     let formData = new FormData();
@@ -132,7 +132,7 @@ const AddBookExchange = () => {
               type="text"
               name="userName"
               id="userName"
-              value={user.displayName}
+              value={user?.displayName}
               disabled
             />
             <p className="font-semibold my-1 font-mono">Your Email:</p>

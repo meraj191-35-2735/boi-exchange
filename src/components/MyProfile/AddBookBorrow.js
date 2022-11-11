@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const AddBookBorrow = () => {
@@ -14,8 +15,8 @@ const AddBookBorrow = () => {
     const writter = event.target.writer.value;
     const image = event.target.image.files[0];
     const duration = event.target.duration.value;
-    const userName = user.displayName;
-    const userEmail = user.email;
+    const userName = user?.displayName;
+    const userEmail = user?.email;
     const userLocation = event.target.userLocation.value;
     const userContact = event.target.userContact.value;
     let formData = new FormData();
@@ -128,7 +129,7 @@ const AddBookBorrow = () => {
               type="text"
               name="userName"
               id="userName"
-              value={user.displayName}
+              value={user?.displayName}
               disabled
             />
             <p className="font-semibold my-1 font-mono">Your Email:</p>
@@ -137,7 +138,7 @@ const AddBookBorrow = () => {
               type="email"
               name="userEmail"
               id="userEmail"
-              value={user.email}
+              value={user?.email}
               disabled
             />
             <p className="font-semibold my-1 font-mono">Your Location:</p>

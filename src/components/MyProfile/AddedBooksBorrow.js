@@ -1,16 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const AddedBooksBorrow = () => {
   const [user] = useAuthState(auth);
   const [myBooks, setMyBooks] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyBooks(data));
   }, [user]);
+
+  const handleDeleteBook = (book) => {
+    const indexOfBook = myBooks.indexOf(book);
+    myBooks.splice(indexOfBook, 1);
+    const restBooks = [...myBooks];
+    setMyBooks(restBooks);
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/book/${book._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setMyBooks(data);
+        navigate("/");
+      });
+  };
 
   return (
     <>
@@ -39,7 +64,10 @@ const AddedBooksBorrow = () => {
                   <td>{book.writter}</td>
                   <td>{book.category}</td>
                   <td>
-                    <p className="btn btn-sm border-2 btn-error font-bold text-white hover:bg-white hover:border-2 hover:text-red-500 hover:rounded-full">
+                    <p
+                      onClick={() => handleDeleteBook(book)}
+                      className="btn btn-sm border-2 btn-error font-bold text-white hover:bg-white hover:border-2 hover:text-red-500 hover:rounded-full"
+                    >
                       Delete
                     </p>
                   </td>
