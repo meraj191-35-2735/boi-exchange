@@ -10,12 +10,12 @@ import { getAuth } from "firebase/auth";
 //   appId: process.env.REACT_APP_APP_ID,
 // };
 const firebaseConfig = {
-  apiKey: "AIzaSyD8tRIsofOytDCUqCs7MpeO5WxQB8XsgvI",
-  authDomain: "boi-exchange-web.firebaseapp.com",
-  projectId: "boi-exchange-web",
-  storageBucket: "boi-exchange-web.appspot.com",
-  messagingSenderId: "182738895028",
-  appId: "1:182738895028:web:fd6a0cf93ab6660fe197e1",
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);

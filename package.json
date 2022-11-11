@@ -28,6 +28,7 @@
     "react-scripts": "5.0.1",
     "react-toastify": "^9.1.1",
     "react-visibility-sensor": "^5.1.1",
+    "recharts": "^2.1.16",
     "swiper": "^8.4.4",
     "web-vitals": "^2.1.4"
   },
