@@ -18,6 +18,8 @@ import RequestsPage from "./components/RequestsPage/RequestsPage";
 import ExchangeRequestAccept from "./components/RequestsPage/ExchangeRequestAccept";
 import BorrowRequestAccept from "./components/RequestsPage/BorrowRequestAccept";
 import { ToastContainer } from "react-toastify";
+import Users from "./components/AdminDashboard/Users";
+import LibrarianManage from "./components/AdminDashboard/LibrarianManage";
 
 function App() {
   return (
@@ -57,12 +59,17 @@ function App() {
           }
         ></Route>
         <Route
-          path="/dashboard"
+          path="/admin/dashboard"
           element={
             <RequireAdmin>
               <AdminDashboard></AdminDashboard>
             </RequireAdmin>
           }
+        ></Route>
+        <Route path="/admin/dashboard/users" element={<Users></Users>}></Route>
+        <Route
+          path="/admin/dashboard/librarians"
+          element={<LibrarianManage></LibrarianManage>}
         ></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

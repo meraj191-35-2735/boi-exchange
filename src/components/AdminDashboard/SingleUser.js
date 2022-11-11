@@ -1,9 +1,9 @@
 import React from "react";
 
-const User = ({ serial, user }) => {
-  const handleMakeAdmin = () => {
+const SingleUser = ({ serial, user }) => {
+  const handleMakeLibrarian = () => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/admin/${user.email}`,
+      `https://floating-gorge-66618.herokuapp.com/user/librarian/${user.email}`,
       {
         method: "PUT",
         headers: {
@@ -13,7 +13,7 @@ const User = ({ serial, user }) => {
     )
       .then((res) => {
         if (res.status === 403) {
-          alert(`Failed to Make Admin ${user.admin}`);
+          alert(`Failed to Make Librarian ${user.admin}`);
         }
         return res.json();
       })
@@ -26,7 +26,7 @@ const User = ({ serial, user }) => {
   };
   const handleRemoveAccess = () => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/removeAdmin/${user.email}`,
+      `https://floating-gorge-66618.herokuapp.com/user/removeLibrarian/${user.email}`,
       {
         method: "PUT",
         headers: {
@@ -36,7 +36,7 @@ const User = ({ serial, user }) => {
     )
       .then((res) => {
         if (res.status === 403) {
-          alert(`Failed to remove Admin ${user.email}`);
+          alert(`Failed to remove Librarian ${user.email}`);
         }
         return res.json();
       })
@@ -62,6 +62,7 @@ const User = ({ serial, user }) => {
           {user.role === "admin" && (
             <button
               onClick={handleRemoveAccess}
+              disabled
               className="btn btn-xs btn-error text-white font-serif hover:bg-white hover:text-error"
             >
               Remove Access
@@ -69,7 +70,6 @@ const User = ({ serial, user }) => {
           )}
           {user.role === "librarian" && (
             <button
-              disabled
               onClick={handleRemoveAccess}
               className="btn btn-xs btn-error text-white font-serif hover:bg-white hover:text-error"
             >
@@ -78,10 +78,10 @@ const User = ({ serial, user }) => {
           )}
           {!user.role && (
             <button
-              onClick={handleMakeAdmin}
-              className="btn btn-xs btn-success text-white font-serif hover:bg-white hover:text-success "
+              onClick={handleMakeLibrarian}
+              className="btn btn-xs btn-success text-white font-serif hover:bg-white hover:text-success"
             >
-              Make Admin
+              Make Librarian
             </button>
           )}
         </td>
@@ -90,4 +90,4 @@ const User = ({ serial, user }) => {
   );
 };
 
-export default User;
+export default SingleUser;

@@ -106,7 +106,7 @@ const Navbar = () => {
                     </li>
                   ) : (
                     <li>
-                      <Link to="/dashboard">Dashboard</Link>
+                      <Link to="/admin/dashboard">Dashboard</Link>
                     </li>
                   )}
                   <li>

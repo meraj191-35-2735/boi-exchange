@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useUsers from "../../hooks/useUsers";
-import User from "./User";
+import SingleUser from "./SingleUser";
 
-const Users = () => {
+const LibrarianManage = () => {
   const [users] = useUsers();
 
   return (
@@ -14,7 +14,7 @@ const Users = () => {
           Boi Exchange
         </span>
       </h1>
-      <h3 className="font-bold font-serif text-white text-center text-xl">Admin Management</h3>
+      <h3 className="font-bold font-serif text-white text-center text-xl">Librarian Management</h3>
       <div className="flex justify-center my-3">
         <Link
           to="/admin/dashboard"
@@ -36,7 +36,11 @@ const Users = () => {
           </thead>
           <tbody>
             {users.map((user, index) => (
-              <User serial={index + 1} user={user} key={user._id}></User>
+              <SingleUser
+                serial={index + 1}
+                user={user}
+                key={user._id}
+              ></SingleUser>
             ))}
           </tbody>
         </table>
@@ -45,4 +49,4 @@ const Users = () => {
   );
 };
 
-export default Users;
+export default LibrarianManage;
