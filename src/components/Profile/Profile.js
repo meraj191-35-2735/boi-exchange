@@ -28,7 +28,7 @@ const Profile = () => {
           className="btn btn-sm bg-black hover:rounded-full hover:border-1 hover:bg-black hover:shadow-inner hover:shadow-white"
           to="/editProfile"
         >
-          Edit Profile <img className="w-4 pl-1" src={edit} alt="" />{" "}
+          Update Profile <img className="w-4 pl-1" src={edit} alt="" />{" "}
         </Link>
       </div>
       <div>
@@ -36,13 +36,19 @@ const Profile = () => {
           {user?.displayName}
         </h1>
         <h2 className="text-center font-bold font-serif text-xl">
-          Phone: {dbUser?.phoneNumber}
+          Phone:{" "}
+          <span className="font-normal font-mono">
+            {dbUser?.phoneNumber ? dbUser?.phoneNumber : "not updated"}
+          </span>
         </h2>
         <h2 className="text-center font-bold font-serif text-xl">
-          Email: {user?.email}
+          Email: <span className="font-normal font-mono">{user?.email}</span>
         </h2>
         <h3 className="text-center font-bold font-serif text-xl">
-          Location: {dbUser?.userLocation}
+          Location:{" "}
+          <span className="font-normal font-mono">
+            {dbUser?.userLocation ? dbUser?.userLocation : "not updated"}
+          </span>
         </h3>
       </div>
     </>

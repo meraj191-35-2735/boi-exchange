@@ -127,12 +127,18 @@ const Login = () => {
             />
           </form>
 
-          <p className="text-center">
+          <p className="text-center font-semibold">
             New to Boi Exchange?{" "}
             <Link className="text-secondary font-bold" to="/signup">
-              Create Account
+              Sign Up
             </Link>
           </p>
+
+          <h1 className="font-mono text-xs text-center font-bold">
+            Admin - Email: admin@boi.exchange <br />
+            Librarian - Email: librarian@boi.exchange <br />
+            For both user Password: 123456
+          </h1>
 
           <div className="divider">OR</div>
           <button

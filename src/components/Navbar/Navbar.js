@@ -76,8 +76,8 @@ const Navbar = () => {
             <li>
               <Link className="hover:text-cyan-600 font-serif" to="/requests">
                 Requests
-                <div className="badge badge-warning">
-                  <p className="font-bold">{totalCount}</p>
+                <div className="badge badge-error">
+                  <p className="font-bold text-white">{totalCount}</p>
                 </div>
               </Link>
             </li>
@@ -166,9 +166,9 @@ const Navbar = () => {
             )}
           </li>
         </ul>
-        <div className="logo">
+        <Link to="/" className="logo">
           <img className="w-52" src={logo} alt="" />
-        </div>
+        </Link>
       </div>
     </nav>
   );
