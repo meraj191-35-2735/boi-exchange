@@ -1,12 +1,13 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import verifyLogo from "../../assets/images/logo/verify-logo.png";
 import auth from "../../firebase.init";
 import Footer from "../Footer/Footer";
 
 const BorrowMessage = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const { bookId } = useParams();
 
   const handleSubmit = (event) => {
@@ -34,6 +35,8 @@ const BorrowMessage = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
+    alert("Request Sent Successfully!");
+    navigate("/");
   };
   return (
     <div>

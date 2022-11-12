@@ -15,8 +15,11 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div>
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 mt-10">
+    <div className="pt-10 px-2 bg-black h-screen">
+      <h1 className="font-bold font-serif text-center text-2xl mb-10 text-white">
+        Admin Dashboard
+      </h1>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5 ">
         <div className="bg-blue-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">

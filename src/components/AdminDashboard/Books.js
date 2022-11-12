@@ -3,8 +3,15 @@ import { Link } from "react-router-dom";
 import useBooks from "../../hooks/useBooks";
 import Loading from "../Loading/Loading";
 import addBook from "../../assets/images/logo/addBook.png";
+import useAdmin from "../../hooks/useAdmin";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import useLibrarian from "../../hooks/useLibrarian";
 
 const Books = () => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  const [librarian] = useLibrarian(user);
   const [books, setBooks] = useBooks();
   if (books.length === 0) {
     return <Loading></Loading>;
@@ -41,12 +48,22 @@ const Books = () => {
         Total Books : {books.length}
       </h1>
       <div className="flex justify-center my-3">
-        <Link
-          to="/admin/dashboard"
-          className="btn btn-xs btn-warning text-white font-serif"
-        >
-          Back
-        </Link>
+        {admin && (
+          <Link
+            to="/admin/dashboard"
+            className="btn btn-xs btn-warning text-white font-serif"
+          >
+            Back
+          </Link>
+        )}
+        {librarian && (
+          <Link
+            to="/librarian/dashboard"
+            className="btn btn-xs btn-warning text-white font-serif"
+          >
+            Back
+          </Link>
+        )}
       </div>
       <div className="grid grid-cols-2 lg:grid-cols-6 gap-5 mt-5">
         {books.map((book) => (

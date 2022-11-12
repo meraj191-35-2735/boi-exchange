@@ -22,6 +22,8 @@ import Users from "./components/AdminDashboard/Users";
 import LibrarianManage from "./components/AdminDashboard/LibrarianManage";
 import Books from "./components/AdminDashboard/Books";
 import AddBook from "./components/AdminDashboard/AddBook";
+import RequireLibrarian from "./components/RequireLibrarian/RequireLibrarian";
+import LibrarianDashboard from "./components/LibrarianDashboard/LibrarianDashboard";
 
 function App() {
   return (
@@ -74,7 +76,28 @@ function App() {
           element={<LibrarianManage></LibrarianManage>}
         ></Route>
         <Route path="/admin/dashboard/books" element={<Books></Books>}></Route>
-        <Route path="/admin/dashboard/books/addBook" element={<AddBook></AddBook>}></Route>
+        <Route
+          path="/admin/dashboard/books/addBook"
+          element={<AddBook></AddBook>}
+        ></Route>
+
+        <Route
+          path="/librarian/dashboard"
+          element={
+            <RequireLibrarian>
+              <LibrarianDashboard></LibrarianDashboard>
+            </RequireLibrarian>
+          }
+        ></Route>
+        <Route
+          path="/librarian/dashboard/books"
+          element={<Books></Books>}
+        ></Route>
+        <Route
+          path="/librarian/dashboard/books/addBook"
+          element={<AddBook></AddBook>}
+        ></Route>
+
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
       <ToastContainer

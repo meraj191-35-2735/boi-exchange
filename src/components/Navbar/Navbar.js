@@ -9,10 +9,12 @@ import { signOut } from "firebase/auth";
 import useAdmin from "../../hooks/useAdmin";
 import useExchangeRequest from "../../hooks/useExchangeRequest";
 import useBorrowRequest from "../../hooks/useBorrowRequest";
+import useLibrarian from "../../hooks/useLibrarian";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
+  const [librarian] = useLibrarian(user);
   const [myExchangeRequest] = useExchangeRequest();
   const [myBorrowRequest] = useBorrowRequest();
   let countForEx = 0;
@@ -81,14 +83,14 @@ const Navbar = () => {
             {user ? (
               <div className="dropdown lg:dropdown-left">
                 {user?.photoURL ? (
-                  <label tabIndex={0} className="avatar">
+                  <label tabIndex={1} className="avatar">
                     <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
                       <img src={user?.photoURL} alt="Profile" />
                     </div>
                   </label>
                 ) : (
                   <label
-                    tabIndex={0}
+                    tabIndex={1}
                     className="font-bold m-1 flex justify-center items-center"
                   >
                     <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
@@ -97,20 +99,44 @@ const Navbar = () => {
                   </label>
                 )}
                 <ul
-                  tabIndex={0}
+                  tabIndex={1}
                   className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
-                  {admin === false ? (
+                  {admin && (
                     <li>
-                      <Link to="/myProfile">Dashboard</Link>
-                    </li>
-                  ) : (
-                    <li>
-                      <Link to="/admin/dashboard">Dashboard</Link>
+                      <Link className="text-serif" to="/admin/dashboard">
+                        Dashboard
+                      </Link>
                     </li>
                   )}
+                  {librarian ? (
+                    <li>
+                      <Link className="text-serif" to="/librarian/dashboard">
+                        Dashboard
+                      </Link>
+                    </li>
+                  ) : (
+                    !admin && (
+                      <li>
+                        <Link className="text-serif" to="/myProfile">
+                          Dashboard
+                        </Link>
+                      </li>
+                    )
+                  )}
+                  {/* {!admin & !librarian&& (
+                    <li>
+                      <Link className="text-serif" to="/myProfile">
+                        Dashboard
+                      </Link>
+                    </li>
+                  )} */}
+
                   <li>
-                    <button className="btn btn-ghost" onClick={logout}>
+                    <button
+                      className="btn btn-ghost text-serif"
+                      onClick={logout}
+                    >
                       Sign Out
                     </button>
                   </li>
