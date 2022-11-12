@@ -26,6 +26,7 @@ import LibrarianDashboard from "./components/LibrarianDashboard/LibrarianDashboa
 import { Toaster } from "react-hot-toast";
 import EditProfile from "./components/EditProfile/EditProfile";
 import Profile from "./components/Profile/Profile";
+import ForgotPassword from "./components/Login/ForgotPassword";
 
 function App() {
   return (
@@ -41,6 +42,10 @@ function App() {
         <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
         <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
         <Route path="/myProfile" element={<Profile></Profile>}></Route>
+        <Route
+          path="/forgotPassword"
+          element={<ForgotPassword></ForgotPassword>}
+        ></Route>
         <Route
           path="/editProfile"
           element={<EditProfile></EditProfile>}

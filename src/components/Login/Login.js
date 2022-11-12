@@ -120,6 +120,15 @@ const Login = () => {
             {/* Error  */}
             {signInError}
             {/* Login Button  */}
+            <h1 className="text-center mt-0 mb-1">
+              Forgot Password?
+              <Link
+                to="/forgotPassword"
+                className="ml-1 text-yellow-600 font-semibold cursor-pointer"
+              >
+                Reset
+              </Link>
+            </h1>
             <input
               className="btn btn-active btn-primary text-white font-bold w-full max-w-xs"
               type="submit"
