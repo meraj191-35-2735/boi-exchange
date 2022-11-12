@@ -16,11 +16,15 @@ const Profile = () => {
   return (
     <>
       <div className="flex justify-center items-center w-full px-10 mt-5">
-        {user?.photoURL && <img className="w-40" src={user?.photoURL} alt="" />}
+        {user?.photoURL && (
+          <img className="w-40 rounded-full" src={user?.photoURL} alt="" />
+        )}
         {dbUser?.photoURL ? (
           <img className="w-40 rounded-full" src={dbUser?.photoURL} alt="" />
         ) : (
-          !user?.photoURL && <img className="w-40" src={profile} alt="" />
+          !user?.photoURL && (
+            <img className="w-40 rounded-full" src={profile} alt="" />
+          )
         )}
       </div>
       <div className="flex justify-center items-center py-5 px-10">
