@@ -17,13 +17,13 @@ import RequireAdmin from "./components/RequireAdmin/RequireAdmin";
 import RequestsPage from "./components/RequestsPage/RequestsPage";
 import ExchangeRequestAccept from "./components/RequestsPage/ExchangeRequestAccept";
 import BorrowRequestAccept from "./components/RequestsPage/BorrowRequestAccept";
-import { ToastContainer } from "react-toastify";
 import Users from "./components/AdminDashboard/Users";
 import LibrarianManage from "./components/AdminDashboard/LibrarianManage";
 import Books from "./components/AdminDashboard/Books";
 import AddBook from "./components/AdminDashboard/AddBook";
 import RequireLibrarian from "./components/RequireLibrarian/RequireLibrarian";
 import LibrarianDashboard from "./components/LibrarianDashboard/LibrarianDashboard";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
@@ -62,6 +62,7 @@ function App() {
             </RequireAuth>
           }
         ></Route>
+        {/* Admin Dashboard  */}
         <Route
           path="/admin/dashboard"
           element={
@@ -80,7 +81,7 @@ function App() {
           path="/admin/dashboard/books/addBook"
           element={<AddBook></AddBook>}
         ></Route>
-
+        {/* Librarian Dashboard  */}
         <Route
           path="/librarian/dashboard"
           element={
@@ -97,21 +98,10 @@ function App() {
           path="/librarian/dashboard/books/addBook"
           element={<AddBook></AddBook>}
         ></Route>
-
+        {/* All  */}
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="dark"
-      ></ToastContainer>
+      <Toaster position="top-right"></Toaster>
     </div>
   );
 }

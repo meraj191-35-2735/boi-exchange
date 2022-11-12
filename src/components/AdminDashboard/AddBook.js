@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const AddBook = () => {
@@ -42,8 +43,8 @@ const AddBook = () => {
               if (inserted.insertedId) {
                 navigate("/admin/dashboard/books");
               } else {
-                // toast.error("Failed to add this book, try again!");
-                alert("Failed Add This Book!");
+                toast.error("Failed to add this book, try again!");
+                // alert("Failed Add This Book!");
               }
             });
         }

@@ -39,6 +39,8 @@ const RequestsPage = () => {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
+    window.location.reload(false);
+
     navigate("/");
   };
 
@@ -59,6 +61,7 @@ const RequestsPage = () => {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
+    window.location.reload(false);
     navigate("/");
   };
 

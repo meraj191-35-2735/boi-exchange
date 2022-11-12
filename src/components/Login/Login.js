@@ -23,7 +23,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [token] = useToken(gUser || user);
-  let from = location.state?.from?.pathname || "/";
+  let from = location?.state?.from?.pathname || "/";
 
   useEffect(() => {
     if (token) {

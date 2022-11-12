@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
 import userProfile from "../../assets/images/logo/userProfile.png";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";
@@ -13,6 +13,7 @@ import useLibrarian from "../../hooks/useLibrarian";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
   const [admin] = useAdmin(user);
   const [librarian] = useLibrarian(user);
   const [myExchangeRequest] = useExchangeRequest();
@@ -23,6 +24,7 @@ const Navbar = () => {
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
+    navigate("/");
   };
 
   for (let request of myExchangeRequest) {

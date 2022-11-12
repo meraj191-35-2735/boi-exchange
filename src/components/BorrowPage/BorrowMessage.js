@@ -1,6 +1,7 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import verifyLogo from "../../assets/images/logo/verify-logo.png";
 import auth from "../../firebase.init";
 import Footer from "../Footer/Footer";
@@ -35,7 +36,8 @@ const BorrowMessage = () => {
     })
       .then((res) => res.json())
       .then((data) => console.log(data));
-    alert("Request Sent Successfully!");
+    // alert("Request Sent Successfully!");
+    toast.success("Request Sent Successfully!");
     navigate("/");
   };
   return (

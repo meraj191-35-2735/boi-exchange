@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import auth from "../../firebase.init";
 
 const AddedBooksBorrow = () => {
   const [user] = useAuthState(auth);
   const [myBooks, setMyBooks] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${user?.email}`)
@@ -33,7 +32,8 @@ const AddedBooksBorrow = () => {
       .then((res) => res.json())
       .then((data) => {
         setMyBooks(data);
-        navigate("/");
+        toast.success("Delete Book Successfully!");
+        window.location.reload(false);
       });
   };
 

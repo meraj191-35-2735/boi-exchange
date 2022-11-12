@@ -1,8 +1,8 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import auth from "../../firebase.init";
-import { toast } from "react-toastify";
 
 const AddBookExchange = () => {
   const [user] = useAuthState(auth);
@@ -53,10 +53,9 @@ const AddBookExchange = () => {
             .then((res) => res.json())
             .then((inserted) => {
               if (inserted.insertedId) {
-                // toast.success("Book added successfully");
-                navigate("/");
+                toast.success("Book added successfully");
               } else {
-                // toast.error("Failed to add this book, try again!");
+                toast.error("Failed to add this book, try again!");
               }
             });
         }
