@@ -39,9 +39,9 @@ const RequestsPage = () => {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
-    window.location.reload(false);
 
     navigate("/");
+    window.location.reload(false);
   };
 
   const handleBorrowReject = (book) => {
@@ -61,8 +61,9 @@ const RequestsPage = () => {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
-    window.location.reload(false);
+    // window.location.reload(false);
     navigate("/");
+    window.location.reload(false);
   };
 
   return (

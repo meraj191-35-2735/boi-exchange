@@ -1,8 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import feature1 from "../../assets/images/features/feature2.jpg";
-import feature2 from "../../assets/images/features/feature1.jpg";
-import feature3 from "../../assets/images/features/feature3.jpg";
 
 const Features = () => {
   return (
@@ -14,7 +11,11 @@ const Features = () => {
         {/* feature 01 */}
         <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
-            <img src={feature1} alt="Shoes" className="rounded-xl" />
+            <img
+              src="https://i.ibb.co/TPR6gYh/feature2.jpg"
+              alt="Shoes"
+              className="rounded-xl"
+            />
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title font-serif">Buy & Sell Books</h2>
@@ -34,7 +35,11 @@ const Features = () => {
         {/* feature 02 */}
         <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
-            <img src={feature2} alt="Shoes" className="rounded-xl" />
+            <img
+              src="https://i.ibb.co/KDhyWjN/feature1.jpg"
+              alt="Shoes"
+              className="rounded-xl"
+            />
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title font-serif">Borrow & Return Book</h2>
@@ -54,7 +59,11 @@ const Features = () => {
         {/* feature 03 */}
         <div className="card bg-cyan-50 shadow-xl">
           <figure className="px-10 pt-10">
-            <img src={feature3} alt="Shoes" className="rounded-xl" />
+            <img
+              src="https://i.ibb.co/gvmpgYb/feature3.jpg"
+              alt="Shoes"
+              className="rounded-xl"
+            />
           </figure>
           <div className="card-body items-center text-center">
             <h2 className="card-title font-serif">Give & Take Book</h2>

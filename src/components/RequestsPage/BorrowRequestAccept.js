@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DateTimePicker from "react-datetime-picker";
+import { toast } from "react-hot-toast";
 import { useNavigate, useParams } from "react-router-dom";
 
 const BorrowRequestAccept = () => {
@@ -34,7 +35,9 @@ const BorrowRequestAccept = () => {
     )
       .then((res) => res.json())
       .then((data) => console.log(data));
+    toast.success("Message Sent Successfully");
     navigate("/");
+    window.location.reload();
   };
 
   return (

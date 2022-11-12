@@ -27,7 +27,7 @@ const Banner = () => {
             age groups discover the joy of reading. It is a very intuitive
             platform for all ages to use easily and discover the joy of books."
               type="word"
-              animationStyle="float"
+              animationStyle="blocks"
             ></AnimatedText1>
           </p>
         </div>

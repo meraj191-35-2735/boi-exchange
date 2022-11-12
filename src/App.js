@@ -24,6 +24,8 @@ import AddBook from "./components/AdminDashboard/AddBook";
 import RequireLibrarian from "./components/RequireLibrarian/RequireLibrarian";
 import LibrarianDashboard from "./components/LibrarianDashboard/LibrarianDashboard";
 import { Toaster } from "react-hot-toast";
+import EditProfile from "./components/EditProfile/EditProfile";
+import Profile from "./components/Profile/Profile";
 
 function App() {
   return (
@@ -34,10 +36,15 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="/store" element={<Store></Store>}></Route>
-        <Route path="/myProfile" element={<MyProfile></MyProfile>}></Route>
+        <Route path="/dashboard" element={<MyProfile></MyProfile>}></Route>
         <Route path="/exchange" element={<ExchangePage></ExchangePage>}></Route>
         <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
         <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
+        <Route path="/myProfile" element={<Profile></Profile>}></Route>
+        <Route
+          path="/editProfile"
+          element={<EditProfile></EditProfile>}
+        ></Route>
         <Route
           path="/exchangeAcceptance/:bookId"
           element={<ExchangeRequestAccept></ExchangeRequestAccept>}

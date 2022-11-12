@@ -1,0 +1,52 @@
+import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link } from "react-router-dom";
+import edit from "../../assets/images/logo/edit.png";
+import profile from "../../assets/images/logo/userProfile.png";
+import auth from "../../firebase.init";
+import useDbUser from "../../hooks/useDbUser";
+import Loading from "../Loading/Loading";
+const Profile = () => {
+  const [dbUser] = useDbUser();
+  const [user, loading] = useAuthState(auth);
+
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  return (
+    <>
+      <div className="flex justify-center items-center w-full px-10 mt-5">
+        {user?.photoURL && <img className="w-40" src={user?.photoURL} alt="" />}
+        {dbUser?.photoURL ? (
+          <img className="w-40 rounded-full" src={dbUser?.photoURL} alt="" />
+        ) : (
+          !user?.photoURL && <img className="w-40" src={profile} alt="" />
+        )}
+      </div>
+      <div className="flex justify-center items-center py-5 px-10">
+        <Link
+          className="btn btn-sm bg-black hover:rounded-full hover:border-1 hover:bg-black hover:shadow-inner hover:shadow-white"
+          to="/editProfile"
+        >
+          Edit Profile <img className="w-4 pl-1" src={edit} alt="" />{" "}
+        </Link>
+      </div>
+      <div>
+        <h1 className="text-center font-bold font-serif text-2xl">
+          {user?.displayName}
+        </h1>
+        <h2 className="text-center font-bold font-serif text-xl">
+          Phone: {dbUser?.phoneNumber}
+        </h2>
+        <h2 className="text-center font-bold font-serif text-xl">
+          Email: {user?.email}
+        </h2>
+        <h3 className="text-center font-bold font-serif text-xl">
+          Location: {dbUser?.userLocation}
+        </h3>
+      </div>
+    </>
+  );
+};
+
+export default Profile;

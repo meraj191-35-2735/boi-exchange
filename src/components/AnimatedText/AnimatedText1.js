@@ -13,8 +13,8 @@ const AnimatedText1 = ({ text, animationStyle, type }) => {
           ease: "ease-in-out",
         }}
         animationType={animationStyle}
-        interval={0.06}
-        duration={0.8}
+        interval={0.04}
+        duration={0.6}
         tag="p"
         className="animated-paragraph"
         includeWhiteSpaces

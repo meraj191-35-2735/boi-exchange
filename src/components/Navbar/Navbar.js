@@ -10,9 +10,11 @@ import useAdmin from "../../hooks/useAdmin";
 import useExchangeRequest from "../../hooks/useExchangeRequest";
 import useBorrowRequest from "../../hooks/useBorrowRequest";
 import useLibrarian from "../../hooks/useLibrarian";
+import useDbUser from "../../hooks/useDbUser";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const [dbUser] = useDbUser();
   const navigate = useNavigate();
   const [admin] = useAdmin(user);
   const [librarian] = useLibrarian(user);
@@ -84,21 +86,37 @@ const Navbar = () => {
           <li>
             {user ? (
               <div className="dropdown lg:dropdown-left">
-                {user?.photoURL ? (
+                {user?.photoURL && (
                   <label tabIndex={1} className="avatar">
                     <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
                       <img src={user?.photoURL} alt="Profile" />
                     </div>
                   </label>
-                ) : (
+                )}
+                {dbUser?.photoURL ? (
                   <label
                     tabIndex={1}
                     className="font-bold m-1 flex justify-center items-center"
                   >
                     <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
-                      <img src={userProfile} alt="" className="w-6" />
+                      <img
+                        src={dbUser?.photoURL}
+                        alt=""
+                        className="w-6 rounded-full"
+                      />
                     </div>
                   </label>
+                ) : (
+                  !user?.photoURL && (
+                    <label
+                      tabIndex={1}
+                      className="font-bold m-1 flex justify-center items-center"
+                    >
+                      <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
+                        <img src={userProfile} alt="" className="w-6" />
+                      </div>
+                    </label>
+                  )
                 )}
                 <ul
                   tabIndex={1}
@@ -120,20 +138,17 @@ const Navbar = () => {
                   ) : (
                     !admin && (
                       <li>
-                        <Link className="text-serif" to="/myProfile">
+                        <Link className="text-serif" to="/dashboard">
                           Dashboard
                         </Link>
                       </li>
                     )
                   )}
-                  {/* {!admin & !librarian&& (
-                    <li>
-                      <Link className="text-serif" to="/myProfile">
-                        Dashboard
-                      </Link>
-                    </li>
-                  )} */}
-
+                  <li>
+                    <Link className="text-serif" to="/myProfile">
+                      My Profile
+                    </Link>
+                  </li>
                   <li>
                     <button
                       className="btn btn-ghost text-serif"
