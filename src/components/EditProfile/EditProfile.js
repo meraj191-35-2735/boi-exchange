@@ -84,13 +84,23 @@ const EditProfile = () => {
           <p className="font-semibold my-1 font-mono">
             Change Profile Picture:
           </p>
-          <input
-            className="file file-bordered file-success w-full max-w-xs file-sm"
-            type="file"
-            name="image"
-            id="image"
-            required
-          />
+          {user?.photoURL ? (
+            <input
+              className="file file-bordered file-success w-full max-w-xs file-sm"
+              type="file"
+              name="image"
+              id="image"
+              disabled
+            />
+          ) : (
+            <input
+              className="file file-bordered file-success w-full max-w-xs file-sm"
+              type="file"
+              name="image"
+              id="image"
+              required
+            />
+          )}
           <p className="font-semibold my-1 font-mono">Your Location:</p>
           <input
             className="input input-bordered input-success w-full max-w-xs input-sm"
