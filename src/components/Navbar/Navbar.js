@@ -2,7 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
 import userProfile from "../../assets/images/logo/userProfile.png";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { signOut } from "firebase/auth";

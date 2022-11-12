@@ -1,12 +1,11 @@
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
+
 import { toast } from "react-hot-toast";
 import auth from "../../firebase.init";
 
 const AddBookExchange = () => {
   const [user] = useAuthState(auth);
-  const navigate = useNavigate();
   const imageStorageKey = `ff0ddab986e357675f654a478f646949`;
 
   const handleSubmit = (event) => {
