@@ -24,13 +24,18 @@ const Navbar = () => {
   let countForEx = 0;
   let countForBro = 0;
   const [exchangeResult, setExchangeResult] = useState([]);
+  const [borrowResult, setBorrowResult] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:5000/exchange/result/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setExchangeResult(data));
   }, [user]);
-  console.log(exchangeResult);
+  useEffect(() => {
+    fetch(`http://localhost:5000/borrow/result/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setBorrowResult(data));
+  }, [user]);
 
   const logout = () => {
     signOut(auth);
@@ -91,14 +96,6 @@ const Navbar = () => {
               </Link>
             </li>
           )}
-          {/* <li>
-            <Link
-              className="hover:text-cyan-600 font-serif"
-              to="/requestResult"
-            >
-              <img className="w-7 mt-1" src={notify} alt="" />
-            </Link>
-          </li> */}
           {user && (
             <li>
               <div className="dropdown dropdown-top lg:dropdown-left">
@@ -116,9 +113,11 @@ const Navbar = () => {
                         {result?.accept ? "accepted" : "rejected"} request for
                         Exchange - {result?.name}
                         <br />
-                        {result?.message && `Message : ${result?.message} `}
-                        {result?.date && `Date: ${result?.date}`}
-                        {result?.time && `Time: ${result?.time}`}
+                        {result?.message &&
+                          `Message : ${result?.message} `}{" "}
+                        <br />
+                        {result?.date && `Date: ${result?.date} `} <br />
+                        {result?.time && `Time: ${result?.time} `}
                       </p>
                       <div className="flex lg:justify-between items-center hover:bg-transparent">
                         <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
@@ -130,6 +129,36 @@ const Navbar = () => {
                       </div>
                     </li>
                   ))}
+                  {borrowResult.map((result) => (
+                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-scroll lg:overflow-auto">
+                      <p className="font-serif text-xs hover:bg-transparent">
+                        {result?.userName}{" "}
+                        {result?.accept ? "accepted" : "rejected"} request for
+                        Borrow - {result?.name}
+                        <br />
+                        {result?.message &&
+                          `Message : ${result?.message} `}{" "}
+                        <br />
+                        {result?.date && `Date: ${result?.date} `} <br />
+                        {result?.time && `Time: ${result?.time} `}
+                      </p>
+                      <div className="flex lg:justify-between items-center hover:bg-transparent">
+                        <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
+                          Taken
+                        </button>
+                        <button className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error">
+                          Cancel
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                  {!borrowResult & !exchangeResult && (
+                    <li className="my-4 bg-cyan-100 rounded-lg">
+                      <h1 className="font-serif text-center text-xs hover:bg-transparent">
+                        There is no notification for you!
+                      </h1>
+                    </li>
+                  )}
                 </ul>
               </div>
             </li>
