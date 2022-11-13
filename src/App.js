@@ -30,7 +30,7 @@ import ForgotPassword from "./components/Login/ForgotPassword";
 
 function App() {
   return (
-    <div className="px-4 w-full">
+    <div className="lg:px-3 px-1 w-full">
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>

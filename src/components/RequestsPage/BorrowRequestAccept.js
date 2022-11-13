@@ -19,7 +19,8 @@ const BorrowRequestAccept = () => {
     const message = document.getElementById("messageAccept").value;
     const requestResult = {
       message: message,
-      dataAndTime: value,
+      date: value.toDateString(),
+      time: value.toLocaleTimeString(),
       requesterEmail: book?.requesterDetails?.email,
     };
 
@@ -37,7 +38,6 @@ const BorrowRequestAccept = () => {
       .then((data) => console.log(data));
     toast.success("Message Sent Successfully");
     navigate("/");
-    window.location.reload();
   };
 
   return (

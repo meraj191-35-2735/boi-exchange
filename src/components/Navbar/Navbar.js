@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
 import logo from "../../assets/images/logo/logo.png";
 import userProfile from "../../assets/images/logo/userProfile.png";
@@ -23,6 +23,14 @@ const Navbar = () => {
   const [myBorrowRequest] = useBorrowRequest();
   let countForEx = 0;
   let countForBro = 0;
+  const [exchangeResult, setExchangeResult] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/exchange/result/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setExchangeResult(data));
+  }, [user]);
+  console.log(exchangeResult);
 
   const logout = () => {
     signOut(auth);
@@ -99,21 +107,29 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 pb-0 shadow bg-gray-50 rounded-box w-96"
+                  className="dropdown-content menu p-2 pb-0 shadow bg-gray-50 rounded-box overflow-scroll w-96 "
                 >
-                  <li className="grid lg:grid-cols-2 grid-cols-1 gap-0">
-                    <p className="font-serif text-xs">
-                      Meraj Accepted Your Request
-                    </p>
-                    <div className="flex lg:justify-between items-center">
-                      <button className="font-serif text-xs btn-xs btn">
-                        Taken
-                      </button>
-                      <button className="font-serif text-xs btn-xs btn">
-                        Cancel
-                      </button>
-                    </div>
-                  </li>
+                  {exchangeResult.map((result) => (
+                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-scroll lg:overflow-auto">
+                      <p className="font-serif text-xs hover:bg-transparent">
+                        {result?.userName}{" "}
+                        {result?.accept ? "accepted" : "rejected"} request for
+                        Exchange - {result?.name}
+                        <br />
+                        {result?.message && `Message : ${result?.message} `}
+                        {result?.date && `Date: ${result?.date}`}
+                        {result?.time && `Time: ${result?.time}`}
+                      </p>
+                      <div className="flex lg:justify-between items-center hover:bg-transparent">
+                        <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
+                          Taken
+                        </button>
+                        <button className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error">
+                          Cancel
+                        </button>
+                      </div>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </li>
