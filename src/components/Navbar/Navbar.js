@@ -11,6 +11,7 @@ import useExchangeRequest from "../../hooks/useExchangeRequest";
 import useBorrowRequest from "../../hooks/useBorrowRequest";
 import useLibrarian from "../../hooks/useLibrarian";
 import useDbUser from "../../hooks/useDbUser";
+import notify from "../../assets/images/logo/notification.png";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -82,14 +83,49 @@ const Navbar = () => {
               </Link>
             </li>
           )}
+          {/* <li>
+            <Link
+              className="hover:text-cyan-600 font-serif"
+              to="/requestResult"
+            >
+              <img className="w-7 mt-1" src={notify} alt="" />
+            </Link>
+          </li> */}
+          {user && (
+            <li>
+              <div className="dropdown dropdown-top lg:dropdown-left">
+                <label tabIndex={0} className="w-7 rounded-full cursor-pointer">
+                  <img className="w-7 mt-1" src={notify} alt="" />
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="dropdown-content menu p-2 pb-0 shadow bg-gray-50 rounded-box w-96"
+                >
+                  <li className="grid lg:grid-cols-2 grid-cols-1 gap-0">
+                    <p className="font-serif text-xs">
+                      Meraj Accepted Your Request
+                    </p>
+                    <div className="flex lg:justify-between items-center">
+                      <button className="font-serif text-xs btn-xs btn">
+                        Taken
+                      </button>
+                      <button className="font-serif text-xs btn-xs btn">
+                        Cancel
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          )}
 
           <li>
             {user ? (
               <div className="dropdown lg:dropdown-left">
                 {user?.photoURL && (
                   <label tabIndex={1} className="avatar">
-                    <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
-                      <img src={user?.photoURL} alt="Profile" />
+                    <div className="w-7 rounded-full ring ring-cyan-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
+                      <img src={user?.photoURL} alt="Profile" className="w-7" />
                     </div>
                   </label>
                 )}
@@ -98,11 +134,11 @@ const Navbar = () => {
                     tabIndex={1}
                     className="font-bold m-1 flex justify-center items-center"
                   >
-                    <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
+                    <div className="w-7 rounded-full ring ring-cyan-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
                       <img
                         src={dbUser?.photoURL}
                         alt=""
-                        className="w-6 rounded-full"
+                        className="w-7 rounded-full"
                       />
                     </div>
                   </label>
@@ -112,8 +148,8 @@ const Navbar = () => {
                       tabIndex={1}
                       className="font-bold m-1 flex justify-center items-center"
                     >
-                      <div className="w-6 rounded-full hover:ring hover:ring-cyan-400 hover:ring-offset-base-100 hover:ring-offset-2 cursor-pointer">
-                        <img src={userProfile} alt="" className="w-6" />
+                      <div className="w-7 rounded-full ring ring-cyan-400 ring-offset-base-100 ring-offset-2 cursor-pointer">
+                        <img src={userProfile} alt="" className="w-7" />
                       </div>
                     </label>
                   )

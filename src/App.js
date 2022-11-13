@@ -113,7 +113,7 @@ function App() {
         {/* All  */}
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
-      <Toaster position="top-right"></Toaster>
+      <Toaster position="top-center"></Toaster>
     </div>
   );
 }
