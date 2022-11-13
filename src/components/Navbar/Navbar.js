@@ -27,12 +27,16 @@ const Navbar = () => {
   const [borrowResult, setBorrowResult] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/exchange/result/${user?.email}`)
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/exchange/result/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setExchangeResult(data));
   }, [user]);
   useEffect(() => {
-    fetch(`http://localhost:5000/borrow/result/${user?.email}`)
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/result/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setBorrowResult(data));
   }, [user]);
@@ -152,7 +156,7 @@ const Navbar = () => {
                       </div>
                     </li>
                   ))}
-                  {!borrowResult & !exchangeResult && (
+                  {borrowResult.length === 0 &&( exchangeResult.length === 0 && 
                     <li className="my-4 bg-cyan-100 rounded-lg">
                       <h1 className="font-serif text-center text-xs hover:bg-transparent">
                         There is no notification for you!
