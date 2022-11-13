@@ -60,7 +60,7 @@ const Navbar = () => {
   const totalCount = countForEx + countForBro;
 
   return (
-    <nav className="navbar">
+    <nav className="navbar ">
       <div className="navbar-container container">
         <input type="checkbox" name="" id="" />
         <div className="hamburger-lines">
@@ -108,10 +108,10 @@ const Navbar = () => {
                 </label>
                 <ul
                   tabIndex={0}
-                  className="dropdown-content menu p-2 pb-0 shadow bg-gray-50 rounded-box overflow-scroll w-96 "
+                  className="dropdown-content menu p-2 pb-0 shadow bg-gray-50 rounded-box overflow-auto lg:overflow-y-auto lg:overflow-x-auto w-96 "
                 >
                   {exchangeResult.map((result) => (
-                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-scroll lg:overflow-auto">
+                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-x-scroll lg:overflow-auto">
                       <p className="font-serif text-xs hover:bg-transparent">
                         {result?.userName}{" "}
                         {result?.accept ? "accepted" : "rejected"} request for
@@ -120,8 +120,10 @@ const Navbar = () => {
                         {result?.message &&
                           `Message : ${result?.message} `}{" "}
                         <br />
-                        {result?.date && `Date: ${result?.date} `} <br />
-                        {result?.time && `Time: ${result?.time} `}
+                        {result?.date &&
+                          `Meet Date: ${result?.date.slice(4, 15)} `}{" "}
+                        <br />
+                        {result?.time && `Meet Time: ${result?.time} `}
                       </p>
                       <div className="flex lg:justify-between items-center hover:bg-transparent">
                         <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
@@ -134,7 +136,7 @@ const Navbar = () => {
                     </li>
                   ))}
                   {borrowResult.map((result) => (
-                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-scroll lg:overflow-auto">
+                    <li className="grid lg:grid-cols-2 grid-cols-1 mb-2 bg-cyan-100 rounded-lg overflow-x-scroll lg:overflow-auto">
                       <p className="font-serif text-xs hover:bg-transparent">
                         {result?.userName}{" "}
                         {result?.accept ? "accepted" : "rejected"} request for
@@ -143,7 +145,9 @@ const Navbar = () => {
                         {result?.message &&
                           `Message : ${result?.message} `}{" "}
                         <br />
-                        {result?.date && `Date: ${result?.date} `} <br />
+                        {result?.date &&
+                          `Date: ${result?.date.slice(4, 15)} `}{" "}
+                        <br />
                         {result?.time && `Time: ${result?.time} `}
                       </p>
                       <div className="flex lg:justify-between items-center hover:bg-transparent">
@@ -156,7 +160,7 @@ const Navbar = () => {
                       </div>
                     </li>
                   ))}
-                  {borrowResult.length === 0 &&( exchangeResult.length === 0 && 
+                  {borrowResult.length === 0 && exchangeResult.length === 0 && (
                     <li className="my-4 bg-cyan-100 rounded-lg">
                       <h1 className="font-serif text-center text-xs hover:bg-transparent">
                         There is no notification for you!

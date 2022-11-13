@@ -14,7 +14,7 @@ const Store = () => {
       <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5">
         Book Store
       </h1>
-      <div className="grid lg:grid-cols-4 grid-cols-2 gap-5 px-8 mb-4">
+      <div className="grid lg:grid-cols-4 grid-cols-1 gap-5 px-8 mb-4">
         {books.map((book) => {
           return <Book key={book.id} book={book}></Book>;
         })}
