@@ -12,6 +12,8 @@ import useBorrowRequest from "../../hooks/useBorrowRequest";
 import useLibrarian from "../../hooks/useLibrarian";
 import useDbUser from "../../hooks/useDbUser";
 import notify from "../../assets/images/logo/notification.png";
+import notifyNone from "../../assets/images/logo/notification1.png";
+import { toast } from "react-hot-toast";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
@@ -40,6 +42,78 @@ const Navbar = () => {
       .then((res) => res.json())
       .then((data) => setBorrowResult(data));
   }, [user]);
+
+  const handleTakenExchange = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/exchange/book/${book._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Thanks for Using Us!");
+        window.location.reload(false);
+      });
+  };
+  const handleCancelExchange = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/exchange/cancel/${book._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Canceled Successfully");
+        window.location.reload(false);
+      });
+  };
+  const handleTakenBorrow = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/book/${book._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "content-type": "application/json",
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Thanks for Using Us!");
+        window.location.reload(false);
+      });
+  };
+
+  const handleCancelBorrow = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/cancel/${book._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Canceled Successfully");
+        window.location.reload(false);
+      });
+  };
 
   const logout = () => {
     signOut(auth);
@@ -126,12 +200,36 @@ const Navbar = () => {
                         {result?.time && `Meet Time: ${result?.time} `}
                       </p>
                       <div className="flex lg:justify-between items-center hover:bg-transparent">
-                        <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
-                          Taken
-                        </button>
-                        <button className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error">
-                          Cancel
-                        </button>
+                        {result?.accept ? (
+                          <button
+                            onClick={() => handleTakenExchange(result)}
+                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success"
+                          >
+                            Taken
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleTakenExchange(result)}
+                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success disabled"
+                          >
+                            Taken
+                          </button>
+                        )}
+                        {result?.accept ? (
+                          <button
+                            onClick={() => handleCancelExchange(result)}
+                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error"
+                          >
+                            Cancel
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleCancelExchange(result)}
+                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error disabled"
+                          >
+                            Cancel
+                          </button>
+                        )}
                       </div>
                     </li>
                   ))}
@@ -151,19 +249,44 @@ const Navbar = () => {
                         {result?.time && `Time: ${result?.time} `}
                       </p>
                       <div className="flex lg:justify-between items-center hover:bg-transparent">
-                        <button className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success">
-                          Taken
-                        </button>
-                        <button className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error">
-                          Cancel
-                        </button>
+                        {result?.accept ? (
+                          <button
+                            onClick={() => handleTakenBorrow(result)}
+                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success"
+                          >
+                            Taken
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleTakenBorrow(result)}
+                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success disabled"
+                          >
+                            Taken
+                          </button>
+                        )}
+                        {result?.accept ? (
+                          <button
+                            onClick={() => handleCancelBorrow(result)}
+                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error"
+                          >
+                            Cancel
+                          </button>
+                        ) : (
+                          <button
+                            onClick={() => handleCancelBorrow(result)}
+                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error disabled"
+                          >
+                            Cancel
+                          </button>
+                        )}
                       </div>
                     </li>
                   ))}
                   {borrowResult.length === 0 && exchangeResult.length === 0 && (
                     <li className="my-4 bg-cyan-100 rounded-lg">
-                      <h1 className="font-serif text-center text-xs hover:bg-transparent">
-                        There is no notification for you!
+                      <h1 className="font-serif text-center text-xs hover:bg-transparent cursor-wait">
+                        <img className="w-4" src={notifyNone} alt="" /> There is
+                        no notification for you!
                       </h1>
                     </li>
                   )}
