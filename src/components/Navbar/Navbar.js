@@ -78,6 +78,23 @@ const Navbar = () => {
         window.location.reload(false);
       });
   };
+  const handleExchangeOK = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/exchange/cancel/${book._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Please try another one!");
+        window.location.reload(false);
+      });
+  };
   const handleTakenBorrow = (book) => {
     fetch(
       `https://floating-gorge-66618.herokuapp.com/borrow/book/${book._id}`,
@@ -111,6 +128,23 @@ const Navbar = () => {
       .then((res) => res.json())
       .then((data) => {
         toast.success("Canceled Successfully");
+        window.location.reload(false);
+      });
+  };
+  const handleBorrowOK = (book) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/borrow/cancel/${book._id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(book),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Please try another one!");
         window.location.reload(false);
       });
   };
@@ -209,8 +243,8 @@ const Navbar = () => {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleTakenExchange(result)}
-                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success disabled"
+                            disabled
+                            className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success "
                           >
                             Taken
                           </button>
@@ -224,10 +258,10 @@ const Navbar = () => {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleCancelExchange(result)}
-                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error disabled"
+                            onClick={() => handleExchangeOK(result)}
+                            className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error"
                           >
-                            Cancel
+                            OK
                           </button>
                         )}
                       </div>
@@ -258,7 +292,7 @@ const Navbar = () => {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleTakenBorrow(result)}
+                            disabled
                             className="font-serif text-xs btn-success btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-success disabled"
                           >
                             Taken
@@ -273,10 +307,10 @@ const Navbar = () => {
                           </button>
                         ) : (
                           <button
-                            onClick={() => handleCancelBorrow(result)}
+                            onClick={() => handleBorrowOK(result)}
                             className="font-serif text-xs btn-error btn-xs btn hover:rounded-full normal-case text-white hover:bg-white hover:text-error disabled"
                           >
-                            Cancel
+                            OK
                           </button>
                         )}
                       </div>
@@ -332,48 +366,60 @@ const Navbar = () => {
                 )}
                 <ul
                   tabIndex={1}
-                  className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
+                  className="dropdown-content menu p-2 pl-0 shadow bg-gray-50 rounded-box w-44"
                 >
                   {admin && (
                     <li>
-                      <Link className="text-serif" to="/admin/dashboard">
+                      <Link
+                        className="hover:bg-cyan-400 hover:text-white font-serif"
+                        to="/admin/dashboard"
+                      >
                         Dashboard
                       </Link>
                     </li>
                   )}
                   {librarian ? (
                     <li>
-                      <Link className="text-serif" to="/librarian/dashboard">
+                      <Link
+                        className="hover:bg-cyan-400 hover:text-white font-serif"
+                        to="/librarian/dashboard"
+                      >
                         Dashboard
                       </Link>
                     </li>
                   ) : (
                     !admin && (
                       <li>
-                        <Link className="text-serif" to="/dashboard">
+                        <Link
+                          className=" hover:bg-cyan-400 hover:text-white font-serif"
+                          to="/dashboard"
+                        >
                           Dashboard
                         </Link>
                       </li>
                     )
                   )}
                   <li>
-                    <Link className="text-serif" to="/myProfile">
+                    <Link
+                      className="hover:bg-cyan-400 hover:text-white font-serif"
+                      to="/myProfile"
+                    >
                       My Profile
                     </Link>
                   </li>
                   <li>
-                    <button
-                      className="btn btn-ghost text-serif"
+                    <h1
+                      className="hover:bg-cyan-400 hover:text-white font-serif"
                       onClick={logout}
                     >
                       Sign Out
-                    </button>
+                    </h1>
                   </li>
                 </ul>
               </div>
             ) : (
               <Link className="hover:text-cyan-600 font-serif" to="/login">
-                Login
+                Log In
               </Link>
             )}
           </li>
