@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import edit from "../../assets/images/logo/edit.png";
 import profile from "../../assets/images/logo/userProfile.png";
+import verified from "../../assets/images/logo/verify.png";
 import auth from "../../firebase.init";
 import useDbUser from "../../hooks/useDbUser";
 import Loading from "../Loading/Loading";
@@ -36,9 +37,12 @@ const Profile = () => {
         </Link>
       </div>
       <div>
-        <h1 className="text-center font-bold font-serif text-2xl">
-          {user?.displayName}
-        </h1>
+        <div className="flex justify-center">
+          <h1 className="text-center font-bold font-serif text-2xl">
+            {user?.displayName}
+          </h1>
+          {user?.emailVerified && <img className="w-8" src={verified} alt="" />}
+        </div>
         <h2 className="text-center font-bold font-serif text-xl">
           Phone:{" "}
           <span className="font-normal font-mono">

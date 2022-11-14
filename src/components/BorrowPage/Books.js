@@ -40,10 +40,10 @@ const Books = ({ book }) => {
       >
         {/* book name */}
         <h3 className="lg:text-xl text-lg font-bold ">{name}</h3>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Category:</span> <br /> {category}
         </p>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Writer:</span> <br /> {writter}
         </p>
       </div>
@@ -54,19 +54,19 @@ const Books = ({ book }) => {
         className="flex flex-col justify-center items-center bg-cyan-100 rounded my-5"
       >
         {/* user details */}
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Name:</span> {userName}
         </p>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Email:</span> {userEmail}
         </p>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Meet Point:</span> {userLocation}
         </p>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Phone:</span> {userContact}
         </p>
-        <p>
+        <p className="font-serif font-sm">
           <span className="font-bold">Available for:</span> {duration} days
         </p>
       </div>
@@ -75,7 +75,7 @@ const Books = ({ book }) => {
         {user ? (
           <Link
             to={`/borrow/${_id}`}
-            className="btn btn-sm btn-outline hover:rounded-full"
+            className="btn btn-sm font-serif btn-outline hover:rounded-full"
           >
             Send Request
           </Link>
@@ -83,12 +83,12 @@ const Books = ({ book }) => {
           <div className="flex flex-col justify-center items-center">
             <Link
               to="/requestMessage"
-              className="btn btn-sm btn-outline hover:rounded-full btn-disabled"
+              className="btn btn-sm font-serif btn-outline hover:rounded-full btn-disabled"
             >
               Send Request
             </Link>
 
-            <p className="text-xs text-warning">
+            <p className="text-xs font-serif text-warning">
               (For Send Request You have to Login to System)
             </p>
           </div>

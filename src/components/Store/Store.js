@@ -29,16 +29,17 @@ const Store = () => {
       <div className="flex justify-center w-full items-center mb-5">
         <div className="w-1/2 lg:w-1/3 flex">
           <input
-            className="input w-full input-sm input-success"
+            className="input w-full input-sm input-success font-serif"
             name="searchText"
             id="searchText"
             type="text"
+            placeholder="Search Books"
           />
           <button
             onClick={handleSearch}
             className="btn btn-ghost btn-xs hover:bg-transparent rounded-full"
           >
-            <img className="w-6" src={searchBook} alt="" />
+            <img className="w-6 rounded-full" src={searchBook} alt="" />
           </button>
         </div>
       </div>

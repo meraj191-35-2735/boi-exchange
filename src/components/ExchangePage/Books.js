@@ -40,12 +40,12 @@ const Books = ({ book }) => {
         className="flex flex-col justify-center items-center bg-cyan-100 rounded my-5"
       >
         {/* book name */}
-        <h3 className="lg:text-xl text-lg font-bold ">{name}</h3>
-        <p>
-          <span className="font-bold">Category:</span> <br /> {category}
+        <h3 className="lg:text-xl text-lg font-bold font-serif">{name}</h3>
+        <p className="font-serif font-sm">
+          <span className="font-bold text-sm font-serif">Category:</span> <br /> {category}
         </p>
-        <p>
-          <span className="font-bold">Writer:</span> <br /> {writter}
+        <p className="font-serif font-sm">
+          <span className="font-bold text-sm font-serif">Writer:</span> <br /> {writter}
         </p>
       </div>
 
@@ -55,20 +55,20 @@ const Books = ({ book }) => {
         className="flex flex-col justify-center items-center bg-cyan-100 rounded my-5"
       >
         {/* user details */}
-        <p>
-          <span className="font-bold">Name:</span> {userName}
+        <p className="font-serif font-sm">
+          <span className="font-bold font-serif">Name:</span> {userName}
         </p>
-        <p>
-          <span className="font-bold">Email:</span> {userEmail}
+        <p className="font-serif font-sm">
+          <span className="font-bold font-serif">Email:</span> {userEmail}
         </p>
-        <p>
-          <span className="font-bold">Meet Point:</span> {userLocation}
+        <p className="font-serif font-sm">
+          <span className="font-bold font-serif">Meet Point:</span> {userLocation}
         </p>
-        <p>
-          <span className="font-bold">Phone:</span> {userContact}
+        <p className="font-serif font-sm">
+          <span className="font-bold font-serif">Phone:</span> {userContact}
         </p>
-        <p>
-          <span className="font-bold">Interested Category for Exchange:</span>
+        <p className="font-serif font-sm">
+          <span className="font-bold font-serif">Interested Category for Exchange:</span>
           <br />
           {interestedBooksType}
         </p>
@@ -78,7 +78,7 @@ const Books = ({ book }) => {
         {user ? (
           <Link
             to={`/exchange/${_id}`}
-            className="btn btn-sm btn-outline hover:rounded-full "
+            className="btn btn-sm btn-outline hover:rounded-full font-serif"
           >
             Send Request
           </Link>
@@ -86,12 +86,12 @@ const Books = ({ book }) => {
           <div className="flex flex-col justify-center items-center">
             <Link
               to="/requestMessage"
-              className="btn btn-sm btn-outline hover:rounded-full btn-disabled"
+              className="btn btn-sm font-serif btn-outline hover:rounded-full btn-disabled"
             >
               Send Request
             </Link>
 
-            <p className="text-xs text-warning">
+            <p className="text-xs font-serif text-warning">
               (For Send Request You have to Login to System)
             </p>
           </div>
