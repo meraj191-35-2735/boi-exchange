@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import useBooks from "../../hooks/useBooks";
 import Footer from "../Footer/Footer";
-import Loading from "../Loading/Loading";
 import Book from "./Book";
 import searchBook from "../../assets/images/logo/searchBook.png";
+import { Link, Outlet } from "react-router-dom";
+import SearchBooks from "../SearchBooks/SearchBooks";
+import Loading from "../Loading/Loading";
 
 const Store = () => {
   const [books] = useBooks();
+  const [searchResult, setSearchResult] = useState([]);
+
+  const handleSearch = () => {
+    const searchText = document.getElementById("searchText").value;
+    const url = `https://floating-gorge-66618.herokuapp.com/book?name=${searchText}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setSearchResult(data));
+  };
   if (books.length === 0) {
     return <Loading></Loading>;
   }
@@ -23,15 +34,35 @@ const Store = () => {
             id="searchText"
             type="text"
           />
-          <button className="btn btn-ghost btn-xs hover:bg-transparent rounded-full">
+          <button
+            onClick={handleSearch}
+            className="btn btn-ghost btn-xs hover:bg-transparent rounded-full"
+          >
             <img className="w-6" src={searchBook} alt="" />
           </button>
         </div>
       </div>
+      <Outlet></Outlet>
+      <div className="flex justify-center my-3">
+        {searchResult.length > 0 && (
+          <Link
+            onClick={() => setSearchResult([])}
+            to="/store"
+            className="btn btn-xs btn-warning text-white font-serif"
+          >
+            Back
+          </Link>
+        )}
+      </div>
       <div className="grid lg:grid-cols-4 grid-cols-1 gap-5 px-8 mb-4">
-        {books.map((book) => {
-          return <Book key={book.id} book={book}></Book>;
-        })}
+        {searchResult &&
+          searchResult.map((book) => {
+            return <SearchBooks key={book.id} book={book}></SearchBooks>;
+          })}
+        {searchResult.length === 0 &&
+          books.map((book) => {
+            return <Book key={book.id} book={book}></Book>;
+          })}
       </div>
 
       <Footer></Footer>
