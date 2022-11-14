@@ -1,8 +1,15 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
+import useLibrarian from "../../hooks/useLibrarian";
 import { useNavigate } from "react-router-dom";
 
 const Book = (book) => {
   const { _id, name, image, category, writter, price } = book.book;
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  const [librarian] = useLibrarian(user);
   const navigate = useNavigate();
   const handleBookNow = (bookId) => {
     navigate(`/buyNow/${bookId}`);
@@ -12,7 +19,7 @@ const Book = (book) => {
       data-aos="fade-down"
       data-aos-offset="200"
       data-aos-delay="50"
-      data-aos-duration="2000"
+      data-aos-duration="1000"
       className="bg-cyan-50 rounded-lg shadow-lg"
     >
       <figure className="pt-2 pb-0">
@@ -36,12 +43,31 @@ const Book = (book) => {
           <span className="font-semibold font-serif">{price}</span>
         </p>
         <div className="card-actions">
-          <button
-            onClick={() => handleBookNow(_id)}
-            className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
-          >
-            Buy Now{" "}
-          </button>
+          {admin && (
+            <button
+              disabled
+              className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+            >
+              Buy Now
+            </button>
+          )}
+          {librarian ? (
+            <button
+              disabled
+              className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+            >
+              Buy Now{" "}
+            </button>
+          ) : (
+            !admin && (
+              <button
+                onClick={() => handleBookNow(_id)}
+                className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+              >
+                Buy Now{" "}
+              </button>
+            )
+          )}
         </div>
       </div>
     </div>

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { useNavigate, useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 
 const BuyNow = () => {
   const [user] = useAuthState(auth);
   const { bookId } = useParams();
   const [buyingBook, setBuyingBook] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://floating-gorge-66618.herokuapp.com/book/${bookId}`)
@@ -20,7 +22,35 @@ const BuyNow = () => {
     const email = user?.email;
     const phone = event.target.phone.value;
     const address = event.target.address.value;
-    console.log(name, email, phone, address);
+    const bookID = bookId;
+    const bookName = buyingBook.name;
+    const price = buyingBook.price;
+
+    fetch("https://floating-gorge-66618.herokuapp.com/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        phone,
+        address,
+        bookID,
+        bookName,
+        price,
+      }),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        if (inserted.insertedId) {
+          toast.success("Ordered Successfully..");
+          navigate("/store");
+        } else {
+          toast.error("Failed to order this book, try again!");
+        }
+      });
   };
 
   return (

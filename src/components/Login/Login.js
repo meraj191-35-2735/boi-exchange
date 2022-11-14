@@ -49,36 +49,36 @@ const Login = () => {
     <div className="flex justify-center items-center h-screen">
       <div className="card w-96 bg-gray-200 shadow-xl">
         <div className="card-body">
-          <h2 className="text-center text-2xl font-bold">Login</h2>
+          <h2 className="text-center text-2xl font-bold font-serif">Log In</h2>
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Email field  */}
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Email</span>
+                <span className="label-text font-serif">Email</span>
               </label>
               <input
                 {...register("email", {
                   required: {
                     value: true,
-                    message: "Email is Required",
+                    message: "Email is Required.",
                   },
                   pattern: {
                     value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                    message: "Provide a Valid Email Address",
+                    message: "Provide a Valid Email Address.",
                   },
                 })}
                 type="email"
                 placeholder="Your Email"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs font-serif"
               />
               <label className="label">
                 {errors.email?.type === "required" && (
-                  <span className="label-text-alt text-red-600">
+                  <span className="label-text-alt text-red-600 font-serif">
                     {errors.email.message}
                   </span>
                 )}
                 {errors.email?.type === "pattern" && (
-                  <span className="label-text-alt text-red-600">
+                  <span className="label-text-alt text-red-600 font-serif">
                     {errors.email.message}
                   </span>
                 )}
@@ -87,31 +87,31 @@ const Login = () => {
             {/* Password Field  */}
             <div className="form-control w-full max-w-xs">
               <label className="label">
-                <span className="label-text">Password</span>
+                <span className="label-text font-serif">Password</span>
               </label>
               <input
                 {...register("password", {
                   required: {
                     value: true,
-                    message: "Password is Required",
+                    message: "Password is Required.",
                   },
                   minLength: {
                     value: 6,
-                    message: "Must be 6 character or more longer",
+                    message: "Password must be 6 character or more longer.",
                   },
                 })}
                 type="password"
                 placeholder="Your Password"
-                className="input input-bordered w-full max-w-xs"
+                className="input input-bordered w-full max-w-xs font-serif"
               />
               <label className="label">
                 {errors.password?.type === "required" && (
-                  <span className="label-text-alt text-red-600">
+                  <span className="label-text-alt text-red-600 font-serif">
                     {errors.password.message}
                   </span>
                 )}
                 {errors.password?.type === "minLength" && (
-                  <span className="label-text-alt text-red-600">
+                  <span className="label-text-alt text-red-600 font-serif">
                     {errors.password.message}
                   </span>
                 )}
@@ -120,23 +120,23 @@ const Login = () => {
             {/* Error  */}
             {signInError}
             {/* Login Button  */}
-            <h1 className="text-center mt-0 mb-1">
+            <h1 className="text-center mt-0 mb-2 font-serif text-xs ">
               Forgot Password?
               <Link
                 to="/forgotPassword"
-                className="ml-1 text-yellow-600 font-semibold cursor-pointer"
+                className="ml-1 text-yellow-600 font-bold cursor-pointer"
               >
                 Reset
               </Link>
             </h1>
             <input
-              className="btn btn-active btn-primary text-white font-bold w-full max-w-xs"
+              className="btn btn-active btn-success text-white font-bold w-full max-w-xs hover:bg-white hover:text-success border-2 font-serif normal-case"
               type="submit"
-              value="Login"
+              value="Log In"
             />
           </form>
 
-          <p className="text-center font-semibold">
+          <p className="text-center text-sm font-serif font-semibold">
             New to Boi Exchange?{" "}
             <Link className="text-secondary font-bold" to="/signup">
               Sign Up
@@ -148,11 +148,10 @@ const Login = () => {
             Librarian - Email: librarian@boi.exchange <br />
             For both user Password: 123456
           </h1>
-
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline "
+            className="btn btn-active btn-success text-white font-bold w-full max-w-xs hover:bg-white hover:text-success border-2 font-serif normal-case"
           >
             Continue with Google
           </button>

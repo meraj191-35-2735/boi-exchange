@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import MyOrders from "../MyOrders/MyOrders";
 import AddBookBorrow from "./AddBookBorrow";
 import AddBookExchange from "./AddBookExchange";
 import AddedBooksBorrow from "./AddedBooksBorrow";
@@ -37,6 +38,12 @@ const MyProfile = () => {
         >
           Added Books(for Borrow)
         </button>
+        <button
+          className={toggleState === 5 ? "tabs active-tabs" : "tabs"}
+          onClick={() => toggleTab(5)}
+        >
+          My Orders
+        </button>
       </div>
       <div className="content-tabs">
         <div
@@ -58,6 +65,11 @@ const MyProfile = () => {
           className={toggleState === 4 ? "content  active-content" : "content"}
         >
           <AddedBooksBorrow></AddedBooksBorrow>
+        </div>
+        <div
+          className={toggleState === 5 ? "content  active-content" : "content"}
+        >
+          <MyOrders></MyOrders>
         </div>
       </div>
     </div>

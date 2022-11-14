@@ -2,9 +2,13 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
+import useLibrarian from "../../hooks/useLibrarian";
 
 const Books = ({ book }) => {
   const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  const [librarian] = useLibrarian(user);
   const {
     name,
     category,
@@ -42,10 +46,12 @@ const Books = ({ book }) => {
         {/* book name */}
         <h3 className="lg:text-xl text-lg font-bold font-serif">{name}</h3>
         <p className="font-serif font-sm">
-          <span className="font-bold text-sm font-serif">Category:</span> <br /> {category}
+          <span className="font-bold text-sm font-serif">Category:</span> <br />{" "}
+          {category}
         </p>
         <p className="font-serif font-sm">
-          <span className="font-bold text-sm font-serif">Writer:</span> <br /> {writter}
+          <span className="font-bold text-sm font-serif">Writer:</span> <br />{" "}
+          {writter}
         </p>
       </div>
 
@@ -62,39 +68,48 @@ const Books = ({ book }) => {
           <span className="font-bold font-serif">Email:</span> {userEmail}
         </p>
         <p className="font-serif font-sm">
-          <span className="font-bold font-serif">Meet Point:</span> {userLocation}
+          <span className="font-bold font-serif">Meet Point:</span>{" "}
+          {userLocation}
         </p>
         <p className="font-serif font-sm">
           <span className="font-bold font-serif">Phone:</span> {userContact}
         </p>
         <p className="font-serif font-sm">
-          <span className="font-bold font-serif">Interested Category for Exchange:</span>
+          <span className="font-bold font-serif">
+            Interested Category for Exchange:
+          </span>
           <br />
           {interestedBooksType}
         </p>
       </div>
       <div className="flex justify-center items-center">
         {/* Request button */}
-        {user ? (
+        {admin && (
           <Link
-            to={`/exchange/${_id}`}
-            className="btn btn-sm btn-outline hover:rounded-full font-serif"
+            disabled
+            to="/"
+            className="btn btn-sm btn-outline hover:rounded-full font-serif disabled:btn"
+          >
+            Send Request
+          </Link>
+        )}
+        {librarian ? (
+          <Link
+            disabled
+            to="/"
+            className="btn btn-sm btn-outline hover:rounded-full font-serif disabled:btn"
           >
             Send Request
           </Link>
         ) : (
-          <div className="flex flex-col justify-center items-center">
+          !admin && (
             <Link
-              to="/requestMessage"
-              className="btn btn-sm font-serif btn-outline hover:rounded-full btn-disabled"
+              to={`/exchange/${_id}`}
+              className="btn btn-sm btn-outline hover:rounded-full font-serif"
             >
               Send Request
             </Link>
-
-            <p className="text-xs font-serif text-warning">
-              (For Send Request You have to Login to System)
-            </p>
-          </div>
+          )
         )}
       </div>
     </div>
