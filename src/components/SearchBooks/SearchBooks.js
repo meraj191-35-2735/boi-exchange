@@ -1,7 +1,14 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
+import useLibrarian from "../../hooks/useLibrarian";
 
 const SearchBooks = (book) => {
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  const [librarian] = useLibrarian(user);
   const { _id, name, image, category, writter, price } = book.book;
   const navigate = useNavigate();
   const handleBookNow = (bookId) => {
@@ -36,12 +43,31 @@ const SearchBooks = (book) => {
           <span className="font-semibold font-serif">{price}</span>
         </p>
         <div className="card-actions">
-          <button
-            onClick={() => handleBookNow(_id)}
-            className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
-          >
-            Buy Now{" "}
-          </button>
+          {admin && (
+            <button
+              disabled
+              className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+            >
+              Buy Now
+            </button>
+          )}
+          {librarian ? (
+            <button
+              disabled
+              className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+            >
+              Buy Now{" "}
+            </button>
+          ) : (
+            !admin && (
+              <button
+                onClick={() => handleBookNow(_id)}
+                className="btn btn-sm btn-outline hover:rounded-full mt-3 font-serif"
+              >
+                Buy Now{" "}
+              </button>
+            )
+          )}
         </div>
       </div>
     </div>

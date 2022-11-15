@@ -5,8 +5,8 @@ import useAdmin from "../../hooks/useAdmin";
 import useLibrarian from "../../hooks/useLibrarian";
 import { useNavigate } from "react-router-dom";
 
-const Book = (book) => {
-  const { _id, name, image, category, writter, price } = book.book;
+const Book = ({ book, handleCategory, handleWriter }) => {
+  const { _id, name, image, category, writter, price } = book;
   const [user] = useAuthState(auth);
   const [admin] = useAdmin(user);
   const [librarian] = useLibrarian(user);
@@ -32,11 +32,21 @@ const Book = (book) => {
         <h2 className="card-title font-serif">{name}</h2>
         <p>
           <span className="font-bold font-serif">By</span>{" "}
-          <span className="text-green-700 font-thin font-serif">{writter}</span>
+          <span
+            onClick={() => handleWriter(writter)}
+            className="text-green-700 font-thin font-serif cursor-pointer"
+          >
+            {writter}
+          </span>
         </p>
         <p>
           <span className="font-bold font-serif">Category: </span>
-          {category}
+          <span
+            onClick={() => handleCategory(category)}
+            className="text-green-700 font-thin font-serif cursor-pointer"
+          >
+            {category}
+          </span>
         </p>
         <p>
           <span className="font-bold font-serif">Price: </span>

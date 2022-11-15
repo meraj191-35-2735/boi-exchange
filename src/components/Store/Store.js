@@ -5,11 +5,12 @@ import Book from "./Book";
 import searchBook from "../../assets/images/logo/searchBook.png";
 import { Link, Outlet } from "react-router-dom";
 import SearchBooks from "../SearchBooks/SearchBooks";
-import Loading from "../Loading/Loading";
 
 const Store = () => {
-  const [books] = useBooks();
+  const [books, setBooks] = useBooks();
   const [searchResult, setSearchResult] = useState([]);
+  const [categoryResult, setCategoryResult] = useState([]);
+  const [writerResult, setWriterResult] = useState([]);
 
   const handleSearch = () => {
     const searchText = document.getElementById("searchText").value;
@@ -18,9 +19,22 @@ const Store = () => {
       .then((res) => res.json())
       .then((data) => setSearchResult(data));
   };
-  if (books.length === 0) {
-    return <Loading></Loading>;
-  }
+
+  const handleCategory = (category) => {
+    fetch(
+      `https://floating-gorge-66618.herokuapp.com/book/category/${category}`
+    )
+      .then((res) => res.json())
+      .then((data) => setCategoryResult(data));
+    setBooks([]);
+  };
+  const handleWriter = (writer) => {
+    fetch(`https://floating-gorge-66618.herokuapp.com/book/writer/${writer}`)
+      .then((res) => res.json())
+      .then((data) => setWriterResult(data));
+    setBooks([]);
+  };
+
   return (
     <div>
       <h1 className="text-center font-serif font-bold text-green-600 text-3xl py-5">
@@ -33,7 +47,7 @@ const Store = () => {
             name="searchText"
             id="searchText"
             type="text"
-            placeholder="Search Books"
+            placeholder="Enter Book Name"
           />
           <button
             onClick={handleSearch}
@@ -47,7 +61,25 @@ const Store = () => {
       <div className="flex justify-center my-3">
         {searchResult.length > 0 && (
           <Link
-            onClick={() => setSearchResult([])}
+            onClick={(() => setSearchResult([]), books)}
+            to="/store"
+            className="btn btn-xs btn-warning text-white font-serif"
+          >
+            Back
+          </Link>
+        )}
+        {writerResult.length > 0 && (
+          <Link
+            onClick={(() => setWriterResult([]), books)}
+            to="/store"
+            className="btn btn-xs btn-warning text-white font-serif"
+          >
+            Back
+          </Link>
+        )}
+        {categoryResult.length > 0 && (
+          <Link
+            onClick={(() => setCategoryResult([]), books)}
             to="/store"
             className="btn btn-xs btn-warning text-white font-serif"
           >
@@ -60,9 +92,22 @@ const Store = () => {
           searchResult.map((book) => {
             return <SearchBooks key={book.id} book={book}></SearchBooks>;
           })}
-        {searchResult.length === 0 &&
+        {writerResult &&
+          writerResult.map((book) => <Book book={book} key={book._id}></Book>)}
+        {categoryResult &&
+          categoryResult.map((book) => (
+            <Book book={book} key={book._id}></Book>
+          ))}
+        {searchResult &&
           books.map((book) => {
-            return <Book key={book.id} book={book}></Book>;
+            return (
+              <Book
+                handleCategory={handleCategory}
+                handleWriter={handleWriter}
+                key={book._id}
+                book={book}
+              ></Book>
+            );
           })}
       </div>
 
