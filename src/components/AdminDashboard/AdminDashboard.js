@@ -3,11 +3,24 @@ import info from "../../assets/images/logo/info.png";
 import manage from "../../assets/images/logo/manage.png";
 import { Link } from "react-router-dom";
 import useBooks from "../../hooks/useBooks";
+import useOrders from "../../hooks/useOrders";
 // import Chart from "./Chart";
 
 const Dashboard = () => {
   const [users, setUsers] = useState([]);
   const [books] = useBooks();
+  const [orders] = useOrders();
+  let countLibrarian = 0;
+  let countAdmin = 0;
+  for (let user of users) {
+    if (user?.role === "admin") {
+      countAdmin++;
+    }
+    if (user?.role === "librarian") {
+      countLibrarian++;
+    }
+  }
+
   useEffect(() => {
     fetch("https://floating-gorge-66618.herokuapp.com/user")
       .then((res) => res.json())
@@ -23,9 +36,9 @@ const Dashboard = () => {
         <div className="bg-blue-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length}
+              {countAdmin}
             </h1>
-            <h3 className="font-bold text-xl  text-white font-serif">Users</h3>
+            <h3 className="font-bold text-xl  text-white font-serif">Admin</h3>
           </div>
           <Link
             to="/admin/dashboard/users"
@@ -57,21 +70,24 @@ const Dashboard = () => {
         <div className="bg-yellow-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length}
+              {orders.length}
             </h1>
-            <h3 className="font-bold text-xl  text-white font-serif">
-              Reviews
-            </h3>
+            <h3 className="font-bold text-xl  text-white font-serif">Orders</h3>
           </div>
-          <div className="flex">
-            <h5 className="font-semibold font-serif text-white">Details </h5>
-            <img className="w-5 ml-1" src={info} alt="" />
+          <div>
+            <Link
+              className="flex btn btn-ghost btn-sm"
+              to="/admin/dashboard/orders"
+            >
+              <h5 className="font-semibold font-serif text-white">Details </h5>
+              <img className="w-5 ml-1" src={info} alt="" />
+            </Link>
           </div>
         </div>
         <div className="bg-red-400 border rounded-lg h-40 flex justify-evenly items-center">
           <div>
             <h1 className="font-bold text-3xl  text-white font-serif">
-              {users.length}
+              {countLibrarian}
             </h1>
             <h3 className="font-bold text-xl  text-white font-serif">
               Librarian

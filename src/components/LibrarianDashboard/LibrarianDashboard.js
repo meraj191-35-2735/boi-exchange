@@ -3,9 +3,12 @@ import { Link } from "react-router-dom";
 import useBooks from "../../hooks/useBooks";
 import manage from "../../assets/images/logo/bookManage.png";
 import orderManage from "../../assets/images/logo/orderManage.png";
+import useOrders from "../../hooks/useOrders";
 
 const LibrarianDashboard = () => {
   const [books] = useBooks();
+  const [orders] = useOrders();
+
   return (
     <div className="bg-gray-400 h-screen pt-10">
       <div className="flex justify-center items-center mb-5">
@@ -33,7 +36,7 @@ const LibrarianDashboard = () => {
         <div className="h-40 flex justify-evenly items-center bg-green-400 rounded-xl shadow-inner shadow-blue-400">
           <div>
             <h5 className="font-bold font-serif text-2xl text-white mb-0 pb-0">
-              {books.length}
+              {orders.length}
             </h5>
             <h2 className="font-bold font-serif text-lg text-white mt-0 pt-0">
               Orders

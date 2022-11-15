@@ -18,6 +18,7 @@ const Store = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSearchResult(data));
+    setBooks([]);
   };
 
   const handleCategory = (category) => {

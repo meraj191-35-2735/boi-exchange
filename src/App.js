@@ -27,6 +27,7 @@ import { Toaster } from "react-hot-toast";
 import EditProfile from "./components/EditProfile/EditProfile";
 import Profile from "./components/Profile/Profile";
 import ForgotPassword from "./components/Login/ForgotPassword";
+import Orders from "./components/Orders/Orders";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/borrow" element={<BorrowPage></BorrowPage>}></Route>
         <Route path="/requests" element={<RequestsPage></RequestsPage>}></Route>
         <Route path="/myProfile" element={<Profile></Profile>}></Route>
+
         <Route
           path="/forgotPassword"
           element={<ForgotPassword></ForgotPassword>}
@@ -102,6 +104,10 @@ function App() {
           path="/admin/dashboard/books/addBook"
           element={<AddBook></AddBook>}
         ></Route>
+        <Route
+          path="/admin/dashboard/orders"
+          element={<Orders></Orders>}
+        ></Route>
         {/* Librarian Dashboard  */}
         <Route
           path="/librarian/dashboard"
@@ -118,6 +124,10 @@ function App() {
         <Route
           path="/librarian/dashboard/books/addBook"
           element={<AddBook></AddBook>}
+        ></Route>
+        <Route
+          path="/librarian/dashboard/orders"
+          element={<Orders></Orders>}
         ></Route>
         {/* All  */}
         <Route path="*" element={<NotFound></NotFound>}></Route>
