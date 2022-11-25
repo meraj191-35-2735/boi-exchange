@@ -1,4 +1,5 @@
 import React from "react";
+import bannerTwo from "../../assets/images/banner/banner02.png";
 
 const Events = () => {
   return (
@@ -9,12 +10,14 @@ const Events = () => {
       <div class="hero min-h-screen bg-cyan-50">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <img
-            src="https://placeimg.com/260/400/arch"
+            src={bannerTwo}
             class="max-w-sm rounded-lg shadow-2xl lg:ml-5"
             alt=""
           />
           <div>
-            <h1 class="text-5xl font-bold font-serif">Book Exchange Fair</h1>
+            <h1 class="lg:text-5xl text-2xl font-bold font-serif">
+              Book Exchange Fair
+            </h1>
             <p class="pt-6 font-serif">
               At DIU, Ashulia, Savar, Dhaka. <br />
               You can Join and Exchange your Book.
