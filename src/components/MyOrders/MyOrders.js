@@ -9,7 +9,7 @@ const MyOrders = () => {
   const [user] = useAuthState(auth);
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/order/${user?.email}`)
+    fetch(`https://boi-exchange-server.onrender.com/order/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyOrders(data));
   }, [user]);

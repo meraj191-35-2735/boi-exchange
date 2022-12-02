@@ -8,7 +8,7 @@ const AddedBooksExchange = () => {
   const [myBooks, setMyBooks] = useState([]);
 
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/${user?.email}`)
+    fetch(`https://boi-exchange-server.onrender.com/exchange/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyBooks(data));
   }, [user]);
@@ -19,7 +19,7 @@ const AddedBooksExchange = () => {
     const restBooks = [...myBooks];
     setMyBooks(restBooks);
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/book/${book._id}`,
+      `https://boi-exchange-server.onrender.com/exchange/book/${book._id}`,
       {
         method: "DELETE",
         headers: {

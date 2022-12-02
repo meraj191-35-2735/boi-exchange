@@ -10,7 +10,7 @@ const BorrowRequestAccept = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/book/${bookId}`)
+    fetch(`https://boi-exchange-server.onrender.com/borrow/book/${bookId}`)
       .then((res) => res.json())
       .then((data) => setBook(data));
   }, [bookId, setBook]);
@@ -24,16 +24,13 @@ const BorrowRequestAccept = () => {
       requesterEmail: book?.requesterDetails?.email,
     };
 
-    fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/accept/${bookId}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(requestResult),
-      }
-    )
+    fetch(`https://boi-exchange-server.onrender.com/borrow/accept/${bookId}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requestResult),
+    })
       .then((res) => res.json())
       .then((data) => console.log(data));
     toast.success("Message Sent Successfully");

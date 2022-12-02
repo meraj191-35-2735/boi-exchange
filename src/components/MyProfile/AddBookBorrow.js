@@ -31,7 +31,7 @@ const AddBookBorrow = () => {
         if (result.success) {
           const image = result.data.url;
           // send to database
-          fetch("https://floating-gorge-66618.herokuapp.com/borrow", {
+          fetch("https://boi-exchange-server.onrender.com/borrow", {
             method: "POST",
             headers: {
               "content-type": "application/json",

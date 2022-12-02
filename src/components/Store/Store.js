@@ -14,7 +14,7 @@ const Store = () => {
 
   const handleSearch = () => {
     const searchText = document.getElementById("searchText").value;
-    const url = `https://floating-gorge-66618.herokuapp.com/book?name=${searchText}`;
+    const url = `https://boi-exchange-server.onrender.com/book?name=${searchText}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSearchResult(data));
@@ -22,15 +22,13 @@ const Store = () => {
   };
 
   const handleCategory = (category) => {
-    fetch(
-      `https://floating-gorge-66618.herokuapp.com/book/category/${category}`
-    )
+    fetch(`https://boi-exchange-server.onrender.com/book/category/${category}`)
       .then((res) => res.json())
       .then((data) => setCategoryResult(data));
     setBooks([]);
   };
   const handleWriter = (writer) => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/book/writer/${writer}`)
+    fetch(`https://boi-exchange-server.onrender.com/book/writer/${writer}`)
       .then((res) => res.json())
       .then((data) => setWriterResult(data));
     setBooks([]);

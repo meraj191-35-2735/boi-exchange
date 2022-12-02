@@ -6,7 +6,7 @@ const useExchangeRequest = () => {
   const [user] = useAuthState(auth);
   const [myExchangeRequest, setExchangeRequest] = useState([]);
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/${user?.email}`)
+    fetch(`https://boi-exchange-server.onrender.com/exchange/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setExchangeRequest(data));
   }, [user?.email]);

@@ -3,7 +3,7 @@ import React from "react";
 const SingleUser = ({ serial, user }) => {
   const handleMakeLibrarian = () => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/librarian/${user.email}`,
+      `https://boi-exchange-server.onrender.com/user/librarian/${user.email}`,
       {
         method: "PUT",
         headers: {
@@ -26,7 +26,7 @@ const SingleUser = ({ serial, user }) => {
   };
   const handleRemoveAccess = () => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/removeLibrarian/${user.email}`,
+      `https://boi-exchange-server.onrender.com/user/removeLibrarian/${user.email}`,
       {
         method: "PUT",
         headers: {

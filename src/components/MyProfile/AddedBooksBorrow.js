@@ -8,7 +8,7 @@ const AddedBooksBorrow = () => {
   const [myBooks, setMyBooks] = useState([]);
 
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${user?.email}`)
+    fetch(`https://boi-exchange-server.onrender.com/borrow/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyBooks(data));
   }, [user]);
@@ -18,17 +18,14 @@ const AddedBooksBorrow = () => {
     myBooks.splice(indexOfBook, 1);
     const restBooks = [...myBooks];
     setMyBooks(restBooks);
-    fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/book/${book._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(book),
-      }
-    )
+    fetch(`https://boi-exchange-server.onrender.com/borrow/book/${book._id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(book),
+    })
       .then((res) => res.json())
       .then((data) => {
         setMyBooks(data);

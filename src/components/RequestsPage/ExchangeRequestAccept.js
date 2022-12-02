@@ -10,11 +10,10 @@ const ExchangeRequestAccept = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/book/${bookId}`)
+    fetch(`https://boi-exchange-server.onrender.com/exchange/book/${bookId}`)
       .then((res) => res.json())
       .then((data) => setBook(data));
   }, [bookId, setBook]);
-  
 
   const handleSend = () => {
     const message = document.getElementById("messageAccept").value;
@@ -26,7 +25,7 @@ const ExchangeRequestAccept = () => {
     };
 
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/accept/${bookId}`,
+      `https://boi-exchange-server.onrender.com/exchange/accept/${bookId}`,
       {
         method: "PUT",
         headers: {

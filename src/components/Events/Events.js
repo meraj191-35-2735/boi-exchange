@@ -22,7 +22,6 @@ const Events = () => {
               At DIU, Ashulia, Savar, Dhaka. <br />
               You can Join and Exchange your Book.
             </p>
-            <h2></h2>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ const ExchangeMessage = () => {
       email: email,
     };
 
-    fetch(`https://floating-gorge-66618.herokuapp.com/exchange/${bookId}`, {
+    fetch(`https://boi-exchange-server.onrender.com/exchange/${bookId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

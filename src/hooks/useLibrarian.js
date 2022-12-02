@@ -6,7 +6,7 @@ const useLibrarian = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://floating-gorge-66618.herokuapp.com/librarian/${email}`, {
+      fetch(`https://boi-exchange-server.onrender.com/librarian/${email}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

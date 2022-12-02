@@ -31,7 +31,7 @@ const AddBookExchange = () => {
         if (result.success) {
           const image = result.data.url;
           // send to database
-          fetch("https://floating-gorge-66618.herokuapp.com/exchange", {
+          fetch("https://boi-exchange-server.onrender.com/exchange", {
             method: "POST",
             headers: {
               "content-type": "application/json",

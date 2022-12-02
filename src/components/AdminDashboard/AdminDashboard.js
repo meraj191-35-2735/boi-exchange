@@ -22,7 +22,7 @@ const Dashboard = () => {
   }
 
   useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/user")
+    fetch("https://boi-exchange-server.onrender.com/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

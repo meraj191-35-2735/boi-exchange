@@ -24,7 +24,7 @@ const AddBook = () => {
         if (result.success) {
           const image = result.data.url;
           // send to database
-          fetch("https://floating-gorge-66618.herokuapp.com/book", {
+          fetch("https://boi-exchange-server.onrender.com/book", {
             method: "POST",
             headers: {
               "content-type": "application/json",

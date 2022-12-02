@@ -26,7 +26,7 @@ const EditProfile = () => {
         if (result.success) {
           const photoURL = result.data.url;
           fetch(
-            `https://floating-gorge-66618.herokuapp.com/user/${user?.email}`,
+            `https://boi-exchange-server.onrender.com/user/${user?.email}`,
             {
               method: "PUT",
               headers: {

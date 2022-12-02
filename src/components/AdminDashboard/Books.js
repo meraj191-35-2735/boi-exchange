@@ -21,7 +21,7 @@ const Books = () => {
     books.splice(indexOfBook, 1);
     const restBooks = [...books];
     setBooks(restBooks);
-    fetch(`https://floating-gorge-66618.herokuapp.com/book/${book._id}`, {
+    fetch(`https://boi-exchange-server.onrender.com/book/${book._id}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

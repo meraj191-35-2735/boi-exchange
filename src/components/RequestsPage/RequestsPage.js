@@ -28,7 +28,7 @@ const RequestsPage = () => {
     };
     delete book.requesterDetails;
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/reject/${book?._id}`,
+      `https://boi-exchange-server.onrender.com/exchange/reject/${book?._id}`,
       {
         method: "PUT",
         headers: {
@@ -49,7 +49,7 @@ const RequestsPage = () => {
     };
     delete book?.requesterDetails;
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/reject/${book?._id}`,
+      `https://boi-exchange-server.onrender.com/borrow/reject/${book?._id}`,
       {
         method: "PUT",
         headers: {

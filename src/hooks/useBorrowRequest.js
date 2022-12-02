@@ -6,7 +6,7 @@ const useBorrowRequest = () => {
   const [user] = useAuthState(auth);
   const [myBorrowRequest, setBorrowRequest] = useState([]);
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${user?.email}`)
+    fetch(`https://boi-exchange-server.onrender.com/borrow/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setBorrowRequest(data));
   }, [user?.email]);

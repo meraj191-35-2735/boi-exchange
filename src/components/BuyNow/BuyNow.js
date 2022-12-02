@@ -11,7 +11,7 @@ const BuyNow = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://floating-gorge-66618.herokuapp.com/book/${bookId}`)
+    fetch(`https://boi-exchange-server.onrender.com/book/${bookId}`)
       .then((res) => res.json())
       .then((data) => setBuyingBook(data));
   }, [bookId]);
@@ -26,7 +26,7 @@ const BuyNow = () => {
     const bookName = buyingBook.name;
     const price = buyingBook.price;
 
-    fetch("https://floating-gorge-66618.herokuapp.com/order", {
+    fetch("https://boi-exchange-server.onrender.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

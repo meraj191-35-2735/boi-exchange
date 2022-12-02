@@ -2,15 +2,12 @@ import React from "react";
 
 const User = ({ serial, user }) => {
   const handleMakeAdmin = () => {
-    fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/admin/${user.email}`,
-      {
-        method: "PUT",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-      }
-    )
+    fetch(`https://boi-exchange-server.onrender.com/user/admin/${user.email}`, {
+      method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => {
         if (res.status === 403) {
           alert(`Failed to Make Admin ${user.admin}`);
@@ -26,7 +23,7 @@ const User = ({ serial, user }) => {
   };
   const handleRemoveAccess = () => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/user/removeAdmin/${user.email}`,
+      `https://boi-exchange-server.onrender.com/user/removeAdmin/${user.email}`,
       {
         method: "PUT",
         headers: {

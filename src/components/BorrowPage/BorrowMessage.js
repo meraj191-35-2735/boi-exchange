@@ -33,7 +33,7 @@ const BorrowMessage = () => {
       email: email,
     };
 
-    fetch(`https://floating-gorge-66618.herokuapp.com/borrow/${bookId}`, {
+    fetch(`https://boi-exchange-server.onrender.com/borrow/${bookId}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

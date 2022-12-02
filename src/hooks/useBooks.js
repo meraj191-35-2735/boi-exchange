@@ -4,7 +4,7 @@ import { useState } from "react";
 const useBooks = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/books")
+    fetch("https://boi-exchange-server.onrender.com/books")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

@@ -11,7 +11,7 @@ const ExchangePage = () => {
   const [user] = useAuthState(auth);
   const [booksMine, setBooks] = useState([]);
   useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/exchange")
+    fetch("https://boi-exchange-server.onrender.com/exchange")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

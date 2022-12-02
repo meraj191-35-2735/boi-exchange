@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 const useUsers = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/user")
+    fetch("https://boi-exchange-server.onrender.com/user")
       .then((res) => res.json())
       .then((data) => setUsers(data));
   }, []);

@@ -30,14 +30,14 @@ const Navbar = () => {
 
   useEffect(() => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/result/${user?.email}`
+      `https://boi-exchange-server.onrender.com/exchange/result/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setExchangeResult(data));
   }, [user]);
   useEffect(() => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/result/${user?.email}`
+      `https://boi-exchange-server.onrender.com/borrow/result/${user?.email}`
     )
       .then((res) => res.json())
       .then((data) => setBorrowResult(data));
@@ -45,7 +45,7 @@ const Navbar = () => {
 
   const handleTakenExchange = (book) => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/book/${book._id}`,
+      `https://boi-exchange-server.onrender.com/exchange/book/${book._id}`,
       {
         method: "DELETE",
         headers: {
@@ -63,7 +63,7 @@ const Navbar = () => {
   };
   const handleCancelExchange = (book) => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/cancel/${book._id}`,
+      `https://boi-exchange-server.onrender.com/exchange/cancel/${book._id}`,
       {
         method: "PUT",
         headers: {
@@ -80,7 +80,7 @@ const Navbar = () => {
   };
   const handleExchangeOK = (book) => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/exchange/cancel/${book._id}`,
+      `https://boi-exchange-server.onrender.com/exchange/cancel/${book._id}`,
       {
         method: "PUT",
         headers: {
@@ -96,17 +96,14 @@ const Navbar = () => {
       });
   };
   const handleTakenBorrow = (book) => {
-    fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/book/${book._id}`,
-      {
-        method: "DELETE",
-        headers: {
-          "content-type": "application/json",
-          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-        },
-        body: JSON.stringify(book),
-      }
-    )
+    fetch(`https://boi-exchange-server.onrender.com/borrow/book/${book._id}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(book),
+    })
       .then((res) => res.json())
       .then((data) => {
         toast.success("Thanks for Using Us!");
@@ -116,7 +113,7 @@ const Navbar = () => {
 
   const handleCancelBorrow = (book) => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/cancel/${book._id}`,
+      `https://boi-exchange-server.onrender.com/borrow/cancel/${book._id}`,
       {
         method: "PUT",
         headers: {
@@ -133,7 +130,7 @@ const Navbar = () => {
   };
   const handleBorrowOK = (book) => {
     fetch(
-      `https://floating-gorge-66618.herokuapp.com/borrow/cancel/${book._id}`,
+      `https://boi-exchange-server.onrender.com/borrow/cancel/${book._id}`,
       {
         method: "PUT",
         headers: {

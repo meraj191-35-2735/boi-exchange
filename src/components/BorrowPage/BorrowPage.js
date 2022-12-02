@@ -10,7 +10,7 @@ const BorrowPage = () => {
   const [user] = useAuthState(auth);
   const [booksMine, setBooks] = useState([]);
   useEffect(() => {
-    fetch("https://floating-gorge-66618.herokuapp.com/borrow")
+    fetch("https://boi-exchange-server.onrender.com/borrow")
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);
